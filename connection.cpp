@@ -1,5 +1,5 @@
 #include "connection.h"
-//test commit
+//test
 Connection::Connection()
 {
 
