@@ -21,6 +21,10 @@ private slots:
 
     void on_pb_modifier_clicked();
 
+    void on_trier_clicked();
+
+    void on_recherche_clicked();
+
 private:
     Ui::MainWindow *ui;
     Aff_juridique AFF;
