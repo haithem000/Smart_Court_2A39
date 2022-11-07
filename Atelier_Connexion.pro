@@ -26,12 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
     aff_juridique.cpp \
+    avocat.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     aff_juridique.h \
+    avocat.h \
         mainwindow.h \
     connection.h
 
