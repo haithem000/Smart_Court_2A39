@@ -30,4 +30,5 @@ private:
     Aff_juridique AFF;
 };
 
+//test
 #endif // MAINWINDOW_H
