@@ -31,6 +31,7 @@ private:
     QString DATEAFF;
     QString AVOCAT;
     QString JUGERES;
+//haithem
 
 
 
