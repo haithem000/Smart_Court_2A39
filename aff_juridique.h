@@ -2,18 +2,19 @@
 #define AFF_JURIDIQUE_H
 //miss test
 #include <QString>
+//#include <QDate>
 #include <QSqlQueryModel>
 
 class Aff_juridique
 {
 public:
     Aff_juridique();
-     Aff_juridique(int,QString,QString,QString,QString);
+     Aff_juridique(int,QString,QString, QString, QString);
      int getNUMAFF();
      QString getTYPEAFF();
      QString getDATEAFF();
      QString getJUGERES();
-     QString getAVOCAT();
+      QString getAVOCAT();
      void setNUMAFF(int);
      void setTYPEAFF(QString);
      void setDATEAFF(QString);
@@ -29,8 +30,9 @@ private:
     int NUMAFF;
     QString TYPEAFF;
     QString DATEAFF;
-    QString AVOCAT;
     QString JUGERES;
+   QString AVOCAT;
+
 //haithem
 
 

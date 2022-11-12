@@ -23,6 +23,12 @@
       <height>531</height>
      </rect>
     </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
@@ -136,27 +142,33 @@
        <string>Trier</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="recherche">
+     <widget class="QLineEdit" name="recherche">
       <property name="geometry">
        <rect>
-        <x>610</x>
+        <x>620</x>
+        <y>50</y>
+        <width>191</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Recherche</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rechercher">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
         <y>50</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>Recherche</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="num_recherche">
-      <property name="geometry">
-       <rect>
-        <x>720</x>
-        <y>52</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
+       <string>recherche</string>
       </property>
      </widget>
      <zorder>textBrowser_2</zorder>
@@ -168,7 +180,7 @@
      <zorder>pushButton_8</zorder>
      <zorder>trier</zorder>
      <zorder>recherche</zorder>
-     <zorder>num_recherche</zorder>
+     <zorder>rechercher</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -274,16 +286,6 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="le_DATEAFF">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>310</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="l_AVOCAT">
       <property name="geometry">
        <rect>
@@ -369,6 +371,19 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Juge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
+     <widget class="QDateEdit" name="le_DATEAFF">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>310</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>textBrowser_5</zorder>
      <zorder>line_13</zorder>
      <zorder>label_25</zorder>
@@ -377,7 +392,6 @@
      <zorder>le_NUMAFF</zorder>
      <zorder>le_TYPEAFF</zorder>
      <zorder>label</zorder>
-     <zorder>le_DATEAFF</zorder>
      <zorder>l_AVOCAT</zorder>
      <zorder>le_JUGERES</zorder>
      <zorder>pb_ajouter</zorder>
@@ -385,6 +399,7 @@
      <zorder>label_3</zorder>
      <zorder>label_19</zorder>
      <zorder>label_20</zorder>
+     <zorder>le_DATEAFF</zorder>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -554,16 +569,6 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="mod_DATEAFF">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>290</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="mod_AVOCAT">
       <property name="geometry">
        <rect>
@@ -701,6 +706,19 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
+     <widget class="QDateEdit" name="mod_DATEAFF">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>290</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -708,7 +726,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>311</width>
+      <width>261</width>
       <height>251</height>
      </rect>
     </property>
@@ -879,6 +897,15 @@
    <zorder>line</zorder>
    <zorder>line_2</zorder>
   </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -889,17 +916,28 @@
     </rect>
    </property>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>trier</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>creerPDF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1162</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1232</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>creerPDF()</slot>
+ </slots>
 </ui>

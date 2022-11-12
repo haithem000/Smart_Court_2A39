@@ -48,7 +48,7 @@ bool Aff_juridique::supprimer(int NUMAFF)
 QSqlQueryModel* Aff_juridique::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
- model->setQuery("SELECT* FROM Aff_juridique");
+ model->setQuery("SELECT* FROM Aff_juridique ");
  model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
  model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
@@ -80,24 +80,26 @@ bool Aff_juridique::modifier(int NUMAFF){
 QSqlQueryModel* Aff_juridique::trier()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-    model->setQuery("SELECT * FROM Aff_juridique ORDER BY Numero");
+    model->setQuery("SELECT * FROM Aff_juridique order by NUMAFF desc");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Avocat"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Juge"));
 
-
  return model;
 }
 
 QSqlQueryModel* Aff_juridique::rechercher()
 {
-    QString a;
     QSqlQueryModel* model= new QSqlQueryModel();
+        model->setQuery("SELECT * FROM AFF_juridique where NUMAFF LIKE '2%' ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Avocat"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Juge"));
 
-        model->setQuery("SELECT * FROM tab_affaire where Avocat LIKE 'N%' ");
     return model;
 }
-
 
