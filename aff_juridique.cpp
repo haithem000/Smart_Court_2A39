@@ -93,7 +93,7 @@ QSqlQueryModel* Aff_juridique::trier()
 QSqlQueryModel* Aff_juridique::rechercher()
 {
     QSqlQueryModel* model= new QSqlQueryModel();
-        model->setQuery("SELECT * FROM AFF_juridique where NUMAFF LIKE '2%' ");
+        model->setQuery("SELECT * FROM AFF_juridique where NUMAFF LIKE '2%' and TYPEAFF LIKE 'A%' and AVOCAT LIKE 'd%' ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));

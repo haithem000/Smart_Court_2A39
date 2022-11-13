@@ -4,6 +4,8 @@
 #include <QSortFilterProxyModel>
 #include <QMainWindow>
 #include <aff_juridique.h>
+#include <QtCharts>
+#include <QLineSeries>
 namespace Ui {
 class MainWindow;
 }
@@ -27,13 +29,16 @@ private slots:
     void on_trier_clicked();
     void on_rechercher_clicked();
 
-    void on_pdf_clicked();
+    void on_PDF_clicked();
+
+    //void on_pushButton_11_clicked();
+
+    void on_pb_stat_clicked();
 
 private:
     Ui::MainWindow *ui;
     Aff_juridique AFF;
-public slots:
-    int creerPDF();
+    QStringList files;
 };
 
 //test

@@ -2,7 +2,8 @@
 #define AFF_JURIDIQUE_H
 //miss test
 #include <QString>
-//#include <QDate>
+#include <QComboBox>
+
 #include <QSqlQueryModel>
 
 class Aff_juridique

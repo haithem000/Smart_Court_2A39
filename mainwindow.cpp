@@ -4,9 +4,10 @@
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QRegExp>
-#include <QPrinter>
-#include <QPainter>
-
+#include <QChart>
+#include <QBarSet>
+#include <QBarSeries>
+#include <QSqlQuery>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,17 +17,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->mod_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->num_supprimer->setValidator(new QIntValidator(0, 999999, this));
-
-
+    QRegExp RX("^[A-D.]+$");
+    QValidator* validatoR = new QRegExpValidator(RX, this);
+    ui->le_TYPEAFF->setValidator(validatoR);
+     ui->mod_TYPEAFF->setValidator(validatoR);
     QRegExp rx("^[a-zA-Z.]+$");
     QValidator* validator = new QRegExpValidator(rx, this);
     ui->l_AVOCAT->setValidator(validator);
-    ui->le_TYPEAFF->setValidator(validator);
+
     ui->le_JUGERES->setValidator(validator);
-    ui->mod_TYPEAFF->setValidator(validator);
+
     ui->mod_AVOCAT->setValidator(validator);
     ui->mod_JUGERES->setValidator(validator);
-
     ui->tab_affaire->setModel(AFF.afficher());
 
 }
@@ -112,101 +114,111 @@ void MainWindow::on_rechercher_clicked()
               ui->tab_affaire->setModel(AFF.rechercher());
 }
 
-/*int stat_ressource::Statistique_partie2()
+
+
+void MainWindow::on_pb_stat_clicked()
 {
-    QSqlQuery query;
-    int count=0 ;
-    QSqlQuery requete("select * from RESSOURCE_TRAITEMENT where STOCK_T BETWEEN '1' AND '50'") ;
-    while(requete.next())
-    {
-            count++ ;
-    }
+    QSqlQuery query,query1,query2,query3;
+        qreal c1=0 ,sum=0,c2=0,c3=0;
+        query.prepare("SELECT * FROM AFF_JURIDIQUE") ;
+        query.exec();
+        while(query.next())
+        {
+                sum++ ;
+        }
 
-return count ;
+        query1.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF=A") ;
+        query1.exec();
+        while(query1.next())
+        {
+                c1++ ;
+        }
 
-}
-int stat_ressource::Statistique_partie3()
-{
-    QSqlQuery query;
-    int count=0 ;
-    QSqlQuery requete("select * from RESSOURCE_TRAITEMENT where STOCK_T BETWEEN '51' AND '150'") ;
-    while(requete.next())
-    {
-            count++ ;
-    }
+        query2.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF=B") ;
+        query2.exec();
+        while(query2.next())
+        {
+                c2++ ;
+        }
 
-return count ;
+        query3.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF =C") ;
+        query3.exec();
+        while(query3.next())
+        {
+                c3++ ;
+        }
 
-}
-int stat_ressource::Statistique_partie4()
-{
-    QSqlQuery query;
-    int count=0 ;
-    QSqlQuery requete("select * from RESSOURCE_TRAITEMENT where STOCK_T BETWEEN '151' AND '300'") ;
-    while(requete.next())
-    {
-            count++ ;
-    }
-
-return count ;
+    qreal d1,d2,d3;
+    d1=(c1/sum)*100;
+    d2=(c1/sum)*100;
+    d3=(c1/sum)*100;
+        QBarSet *set1 = new QBarSet("TYPE A");
+        QBarSet *set2 = new QBarSet("TYPE B");
+        QBarSet *set3 = new QBarSet("TYPE C");
 
 
-}
-void stat_ressource::paintEvent(QPaintEvent *)
-{
+        // Assign values for each bar
+         *set1 << d1 ;
+         *set2 << d2 ;
+         *set3 << d3 ;
 
-    int b=Statistique_partie2();
-    //cout<<b<<endl ;
-    int c=Statistique_partie3();
-   // cout<<c<<endl ;
-    int d=Statistique_partie4();
-    //cout<<d<<endl ;
 
-        float s2= b*100 ;
-        float s3=c*100;
-        float nb = b+c+d ;
-        float q2 ;
-        q2 = s2/nb ;
-        float q3;
-        q3=s3/nb;
-        float y  ;
-        y = (q2*360)/100 ;
-        float m;
-        m= (q3*360)/100;
-        float z  ;
-        z=360-(y+m) ;
-    QPainter painter(this);
-    QRectF size=QRectF(50,50,this->width()-500,this->width()-500);
+        // Add all sets of data to the chart as a whole
+        // 1. Bar Chart
+        QBarSeries *series = new QBarSeries();
 
-    painter.setBrush(Qt::red);
-    painter.drawPie(size,0,16*y);
-    ui->label_2->setText("10-50") ;
-    painter.setBrush(Qt::green);
-    painter.drawPie(size,16*y,16*m);
-    ui->label_3->setText("51-100") ;
-    painter.setBrush(Qt::blue);
-    painter.drawPie(size,16*(m+y),16*z);
-    ui->label_4->setText("101-9999") ;
+        // 2. Stacked bar chart
+        // QHorizontalStackedBarSeries *series = new QHorizontalStackedBarSeries();
 
-}*/
+        series->append(set1);
+        series->append(set2);
+        series->append(set3);
 
-//pdf : vous trouver le fichier dans le dossier build
-int MainWindow::creerPDF()
-{
-    QPrinter printer;
-          printer.setOutputFormat(QPrinter::PdfFormat);
-          printer.setOutputFileName("/miprimerpdf.pdf");
-          QPainter painter;
-          if (! painter.begin(&printer)) { // failed to open file
-              qWarning("failed to open file, is it writable?");
-              return 1;
-          }
-          painter.drawText(10, 10, "miprimerpdf");
-          painter.drawText(10, 30, "hoja1");
-          if (! printer.newPage()) {
-              qWarning("failed in flushing page to disk, disk full?");
-              return 1;
-          }
-          painter.drawText(10, 10, "hoja2");
-          painter.end();
+
+        // Used to define the bar chart to display, title
+        // legend,
+        QChart *chart = new QChart();
+
+        // Add the chart
+        chart->addSeries(series);
+
+        // Set title
+        chart->setTitle("Statistique selon type");
+
+        // Define starting animation
+        // NoAnimation, GridAxisAnimations, SeriesAnimations
+        chart->setAnimationOptions(QChart::SeriesAnimations);
+
+        // Holds the category titles
+        QStringList categories;
+        categories << "stats";
+
+        // Adds categories to the axes
+        QBarCategoryAxis *axis = new QBarCategoryAxis();
+        axis->append(categories);
+        chart->addAxis(axis, Qt::AlignBottom);
+        series->attachAxis(axis);
+        chart->createDefaultAxes();
+
+
+        // 2. Stacked Bar chart
+
+        // Define where the legend is displayed
+        chart->legend()->setVisible(true);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+
+
+        // Used to display the chart
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+         chartView->setMinimumSize(800,400);
+        chartView->setParent(ui->tableau);
+
+        // Used to change the palette
+        QPalette pal = qApp->palette();
+
+
+        // Apply palette changes to the application
+        qApp->setPalette(pal);
 }
