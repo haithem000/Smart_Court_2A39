@@ -32,6 +32,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mod_JUGERES->setValidator(validator);
     ui->tab_affaire->setModel(AFF.afficher());
 
+    ui->l_AVOCAT->setModel(AFF.get_avocats("A"));
+    ui->le_JUGERES->setModel(AFF.get_judges("A"));
+/*
+    ui->mod_AVOCAT->setModel( AFF1.get_avocats("A"));
+    ui->mod_JUGERES->setModel(AFF1.get_judges("A"));
+*/
+
 }
 
 MainWindow::~MainWindow()
@@ -43,10 +50,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_ajouter_clicked()
 {
     int NUMAFF=ui->le_NUMAFF->text().toInt();
-    QString TYPEAFF=ui->le_TYPEAFF->text();
+    QString TYPEAFF=ui->le_TYPEAFF->currentText();
     QString DATEAFF=ui->le_DATEAFF->text();
-    QString AVOCAT=ui->l_AVOCAT->text();
-    QString JUGERES=ui->le_JUGERES->text();
+    QString AVOCAT=ui->l_AVOCAT->currentText();
+    QString JUGERES=ui->le_JUGERES->currentText();
 
    Aff_juridique AFF(NUMAFF,TYPEAFF,DATEAFF,AVOCAT,JUGERES);
    bool test;
@@ -85,10 +92,10 @@ QMessageBox msgBox;
 void MainWindow::on_pb_modifier_clicked()
 {
     int NUMAFF=ui->mod_NUMAFF->text().toInt();
-    QString TYPEAFF=ui->mod_TYPEAFF->text();
+    QString TYPEAFF=ui->mod_TYPEAFF->currentText();
     QString DATEAFF=ui->mod_DATEAFF->text();
-    QString AVOCAT=ui->mod_AVOCAT->text();
-    QString JUGERES=ui->mod_JUGERES->text();
+    QString AVOCAT=ui->mod_AVOCAT->currentText();
+    QString JUGERES=ui->mod_JUGERES->currentText();
 
     Aff_juridique AFF(NUMAFF,TYPEAFF,DATEAFF,AVOCAT,JUGERES);
 
@@ -138,15 +145,15 @@ QString strStream;
             // headers
                 out << "<thead><tr bgcolor=#f0f0f0>";
                 for (int column = 0; column < columnCount; column++)
-                    if (!ui->tableau->isColumnHidden(column))
-                        out << QString("<th>%1</th>").arg(ui->tableau->model()->headerData(column, Qt::Horizontal).toString());
+                    if (!ui->tab_affaire->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->tab_affaire->model()->headerData(column, Qt::Horizontal).toString());
                 out << "</tr></thead>\n";
                 // data table
                    for (int row = 0; row < rowCount; row++) {
                        out << "<tr>";
                        for (int column = 0; column < columnCount; column++) {
-                           if (!ui->tableau->isColumnHidden(column)) {
-                               QString data = ui->tableau->model()->data(ui->tableau->model()->index(row, column)).toString().simplified();
+                           if (!ui->tab_affaire->isColumnHidden(column)) {
+                               QString data = ui->tab_affaire->model()->data(ui->tab_affaire->model()->index(row, column)).toString().simplified();
                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
                            }
                        }
@@ -279,3 +286,29 @@ void MainWindow::on_pb_stat_clicked()
 
 
 
+
+void MainWindow::on_le_TYPEAFF_currentIndexChanged(int index)
+{
+    exp=ui->le_TYPEAFF->currentText();
+    ui->l_AVOCAT->setModel( AFF.get_avocats(exp));
+    ui->le_JUGERES->setModel(AFF.get_judges(exp));
+
+}
+/*
+void MainWindow::on_mod_TYPEAFF_currentIndexChanged(int index)
+{
+    exp_mod=ui->mod_TYPEAFF->currentText();
+    ui->mod_AVOCAT->setModel( AFF1.get_avocats(exp_mod));
+    ui->mod_JUGERES->setModel(AFF1.get_judges(exp_mod));
+
+}
+*/
+
+void MainWindow::on_recordButton_clicked()
+{
+    QProcess *process = new QProcess(this);
+    process->start(audio);
+   /* ar= new audiorecorder();
+    ar->show();
+    */
+}

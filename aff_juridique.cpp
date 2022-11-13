@@ -103,3 +103,18 @@ QSqlQueryModel* Aff_juridique::rechercher()
     return model;
 }
 
+QSqlQueryModel* Aff_juridique::get_avocats(QString exp)
+{
+    QSqlQueryModel* model= new QSqlQueryModel();
+        model->setQuery("SELECT * FROM avocat where exp='"+exp+"' ");
+
+    return model;
+}
+
+QSqlQueryModel* Aff_juridique::get_judges(QString exp)
+{
+    QSqlQueryModel* model= new QSqlQueryModel();
+model->setQuery("SELECT * FROM CITOYEN where exp='"+exp+"' ");
+
+    return model;
+}

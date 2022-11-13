@@ -25,6 +25,9 @@ public:
      QSqlQueryModel* afficher();
      QSqlQueryModel* trier();
      QSqlQueryModel* rechercher();
+     QSqlQueryModel* get_avocats(QString exp);
+     QSqlQueryModel* get_judges(QString exp);
+
      bool supprimer(int);
      bool modifier(int NUMAFF);
 private:

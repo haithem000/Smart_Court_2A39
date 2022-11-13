@@ -12,6 +12,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Atelier_Connexion
 TEMPLATE = app
 
+TEMPLATE = app
+TARGET = audiorecorder
+
+win32:INCLUDEPATH += $$PWD
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -27,21 +32,31 @@ CONFIG += c++11
 
 SOURCES += \
     aff_juridique.cpp \
+    audiorecorder.cpp \
     avocat.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    qaudiolevel.cpp
 
 HEADERS += \
-    aff_juridique.h \
+ aff_juridique.h \
+    audiorecorder.h \
     avocat.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    qaudiolevel.h
 
 FORMS += \
+        audiorecorder.ui \
         mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+target.path = $$[QT_INSTALL_EXAMPLES]/multimedia/audiorecorder
+INSTALLS += target
+
+QT+=widgets
+include(../../shared/shared.pri)
