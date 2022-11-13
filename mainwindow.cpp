@@ -8,6 +8,7 @@
 #include <QBarSet>
 #include <QBarSeries>
 #include <QSqlQuery>
+#include <QPrinter>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->mod_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->num_supprimer->setValidator(new QIntValidator(0, 999999, this));
-    QRegExp RX("^[A-D.]+$");
+    QRegExp RX("^[A-C.]+$");
     QValidator* validatoR = new QRegExpValidator(RX, this);
     ui->le_TYPEAFF->setValidator(validatoR);
      ui->mod_TYPEAFF->setValidator(validatoR);
@@ -114,6 +115,59 @@ void MainWindow::on_rechercher_clicked()
               ui->tab_affaire->setModel(AFF.rechercher());
 }
 
+//pdf : vous trouver le fichier dans le dossier build
+void MainWindow::on_PDF_clicked()
+{
+
+QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->tab_affaire->model()->rowCount();
+            const int columnCount =ui->tab_affaire->model()->columnCount();
+
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("eleve")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<h1>Liste des Evenements</h1>"
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->tableau->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->tableau->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->tableau->isColumnHidden(column)) {
+                               QString data = ui->tableau->model()->data(ui->tableau->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+
+
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+
+
+    //QTextDocument document;
+    //document.setHtml(html);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName("MYfile.pdf");
+    document->print(&printer);}
 
 
 void MainWindow::on_pb_stat_clicked()
@@ -127,21 +181,21 @@ void MainWindow::on_pb_stat_clicked()
                 sum++ ;
         }
 
-        query1.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF=A") ;
+        query1.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE=A") ;
         query1.exec();
         while(query1.next())
         {
                 c1++ ;
         }
 
-        query2.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF=B") ;
+        query2.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE=B") ;
         query2.exec();
         while(query2.next())
         {
                 c2++ ;
         }
 
-        query3.prepare("SELECT * FROM AFF_JURIDIQUE where TYPEAFF =C") ;
+        query3.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE =C") ;
         query3.exec();
         while(query3.next())
         {
@@ -222,3 +276,6 @@ void MainWindow::on_pb_stat_clicked()
         // Apply palette changes to the application
         qApp->setPalette(pal);
 }
+
+
+
