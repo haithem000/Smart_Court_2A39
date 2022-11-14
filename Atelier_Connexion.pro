@@ -33,7 +33,6 @@ CONFIG += c++11
 SOURCES += \
     aff_juridique.cpp \
     audiorecorder.cpp \
-    avocat.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -42,7 +41,6 @@ SOURCES += \
 HEADERS += \
  aff_juridique.h \
     audiorecorder.h \
-    avocat.h \
         mainwindow.h \
     connection.h \
     qaudiolevel.h

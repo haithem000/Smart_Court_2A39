@@ -34,10 +34,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->l_AVOCAT->setModel(AFF.get_avocats("A"));
     ui->le_JUGERES->setModel(AFF.get_judges("A"));
-/*
+
     ui->mod_AVOCAT->setModel( AFF1.get_avocats("A"));
     ui->mod_JUGERES->setModel(AFF1.get_judges("A"));
-*/
+
 
 }
 
@@ -138,7 +138,7 @@ QString strStream;
                     <<  QString("<title>%1</title>\n").arg("eleve")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<h1>Liste des Evenements</h1>"
+                        "<h1>Liste Des Affaires</h1>"
 
                         "<table border=1 cellspacing=0 cellpadding=2>\n";
 
@@ -294,15 +294,15 @@ void MainWindow::on_le_TYPEAFF_currentIndexChanged(int index)
     ui->le_JUGERES->setModel(AFF.get_judges(exp));
 
 }
-/*
-void MainWindow::on_mod_TYPEAFF_currentIndexChanged(int index)
+
+void MainWindow::on_mod_TYPEAFF_currentIndexChanged(int indexx)
 {
     exp_mod=ui->mod_TYPEAFF->currentText();
     ui->mod_AVOCAT->setModel( AFF1.get_avocats(exp_mod));
     ui->mod_JUGERES->setModel(AFF1.get_judges(exp_mod));
 
 }
-*/
+
 
 void MainWindow::on_recordButton_clicked()
 {
@@ -312,3 +312,6 @@ void MainWindow::on_recordButton_clicked()
     ar->show();
     */
 }
+
+
+
