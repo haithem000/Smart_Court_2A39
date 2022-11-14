@@ -27,7 +27,6 @@ private slots:
 
     void on_pb_modifier_clicked();
 
-    void on_trier_clicked();
     void on_rechercher_clicked();
 
     void on_PDF_clicked();
