@@ -116,7 +116,7 @@
        <string>recherche</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="trier">
+     <widget class="QPushButton" name="trier_date">
       <property name="geometry">
        <rect>
         <x>810</x>
@@ -126,14 +126,14 @@
        </rect>
       </property>
       <property name="text">
-       <string>Trier</string>
+       <string>trier_date</string>
       </property>
      </widget>
      <widget class="QPushButton" name="PDF">
       <property name="geometry">
        <rect>
         <x>810</x>
-        <y>230</y>
+        <y>200</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -184,17 +184,31 @@
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="trier_type">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>240</y>
+        <width>91</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trier_type</string>
+      </property>
+     </widget>
      <zorder>textBrowser_2</zorder>
      <zorder>label_13</zorder>
      <zorder>tab_affaire</zorder>
      <zorder>line_5</zorder>
      <zorder>line_6</zorder>
      <zorder>rechercher</zorder>
-     <zorder>trier</zorder>
+     <zorder>trier_date</zorder>
      <zorder>PDF</zorder>
      <zorder>recordButton</zorder>
      <zorder>pb_stat</zorder>
      <zorder>le_Rechercher</zorder>
+     <zorder>trier_type</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">

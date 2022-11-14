@@ -46,6 +46,10 @@ private slots:
 
     void on_mod_TYPEAFF_currentIndexChanged(int index);
 
+    void on_trier_type_clicked();
+
+    void on_trier_date_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString audio="C:/Users/PC/Documents/GitHub/Smart_Court_2A39/debug/audiorecorder.exe";

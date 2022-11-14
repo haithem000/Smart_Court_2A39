@@ -23,7 +23,8 @@ public:
      void setTAVOCAT(QString);
      bool ajouter();
      QSqlQueryModel* afficher();
-     QSqlQueryModel* trier();
+     QSqlQueryModel* trier_date();
+     QSqlQueryModel* trier_type();
      QSqlQueryModel* rechercher(int,QString,QString,QString,QString);
      QSqlQueryModel* get_avocats(QString exp);
      QSqlQueryModel* get_judges(QString exp);

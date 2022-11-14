@@ -111,11 +111,19 @@ void MainWindow::on_pb_modifier_clicked()
 
 
 
-void MainWindow::on_trier_clicked()
+void MainWindow::on_trier_date_clicked()
 {
-  ui->tab_affaire->setModel(AFF.trier());
+  ui->tab_affaire->setModel(AFF.trier_date());
 
 }
+
+
+void MainWindow::on_trier_type_clicked()
+{
+    ui->tab_affaire->setModel(AFF.trier_type());
+
+}
+
 
 void MainWindow::on_rechercher_clicked()
 {

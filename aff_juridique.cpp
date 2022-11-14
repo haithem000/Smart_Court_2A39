@@ -77,10 +77,10 @@ bool Aff_juridique::modifier(int NUMAFF){
     //execution de la requetteNU
     return query.exec();
 }
-QSqlQueryModel* Aff_juridique::trier()
+QSqlQueryModel* Aff_juridique::trier_date()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-    model->setQuery("SELECT * FROM Aff_juridique order by NUMAFF desc");
+    model->setQuery("SELECT * FROM Aff_juridique order by DATEAFF desc");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
@@ -90,6 +90,18 @@ QSqlQueryModel* Aff_juridique::trier()
  return model;
 }
 
+QSqlQueryModel* Aff_juridique::trier_type()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Aff_juridique order by TYPEAFF asc");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Avocat"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Juge"));
+
+ return model;
+}
 QSqlQueryModel* Aff_juridique::rechercher(int NUMAFF, QString TYPEAFF, QString DATEAFF, QString AVOCAT, QString JUGERES)
 {
         QSqlQueryModel * model=new QSqlQueryModel();
