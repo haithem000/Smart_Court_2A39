@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1237</width>
-    <height>696</height>
+    <width>1250</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -106,8 +106,8 @@
      <widget class="QPushButton" name="rechercher">
       <property name="geometry">
        <rect>
-        <x>810</x>
-        <y>190</y>
+        <x>370</x>
+        <y>30</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -168,6 +168,22 @@
        <string>Stat</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="le_Rechercher">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>30</y>
+        <width>191</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Recherche</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>textBrowser_2</zorder>
      <zorder>label_13</zorder>
      <zorder>tab_affaire</zorder>
@@ -178,6 +194,7 @@
      <zorder>PDF</zorder>
      <zorder>recordButton</zorder>
      <zorder>pb_stat</zorder>
+     <zorder>le_Rechercher</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -855,7 +872,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1237</width>
+     <width>1250</width>
      <height>26</height>
     </rect>
    </property>

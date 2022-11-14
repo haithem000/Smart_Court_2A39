@@ -119,8 +119,16 @@ void MainWindow::on_trier_clicked()
 
 void MainWindow::on_rechercher_clicked()
 {
-              ui->tab_affaire->setModel(AFF.rechercher());
+            int NUMAFF=ui->le_Rechercher->text().toInt();
+            QString TYPEAFF=ui->le_Rechercher->text();
+            QString DATEAFF=ui->le_Rechercher->text();
+            QString AVOCAT=ui->le_Rechercher->text();
+            QString JUGERES=ui->le_Rechercher->text();
+ui->tab_affaire->setModel(AFF.rechercher(NUMAFF,TYPEAFF,DATEAFF,AVOCAT,JUGERES));
+
+
 }
+
 
 //pdf : vous trouver le fichier dans le dossier build
 void MainWindow::on_PDF_clicked()
@@ -312,6 +320,7 @@ void MainWindow::on_recordButton_clicked()
     ar->show();
     */
 }
+
 
 
 

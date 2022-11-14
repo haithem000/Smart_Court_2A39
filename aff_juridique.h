@@ -24,7 +24,7 @@ public:
      bool ajouter();
      QSqlQueryModel* afficher();
      QSqlQueryModel* trier();
-     QSqlQueryModel* rechercher();
+     QSqlQueryModel* rechercher(int,QString,QString,QString,QString);
      QSqlQueryModel* get_avocats(QString exp);
      QSqlQueryModel* get_judges(QString exp);
 
