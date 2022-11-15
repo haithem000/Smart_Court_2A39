@@ -102,6 +102,19 @@ QSqlQueryModel* Aff_juridique::trier_type()
 
  return model;
 }
+
+/*QSqlQueryModel* Aff_juridique::trier_avocat()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Aff_juridique order by AVOCAT asc");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Numero"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Avocat"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Juge"));
+
+ return model;
+}*/
 QSqlQueryModel* Aff_juridique::rechercher(int NUMAFF, QString TYPEAFF, QString DATEAFF, QString AVOCAT, QString JUGERES)
 {
         QSqlQueryModel * model=new QSqlQueryModel();

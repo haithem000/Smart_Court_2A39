@@ -124,6 +124,11 @@ void MainWindow::on_trier_type_clicked()
 
 }
 
+/*void MainWindow::on_trier_avocat_clicked()
+{
+    ui->tab_affaire->setModel(AFF.trier_type());
+
+}*/
 
 void MainWindow::on_rechercher_clicked()
 {
