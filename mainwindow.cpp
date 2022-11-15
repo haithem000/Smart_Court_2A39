@@ -202,28 +202,28 @@ void MainWindow::on_pb_stat_clicked()
 {
     QSqlQuery query,query1,query2,query3;
         qreal c1=0 ,sum=0,c2=0,c3=0;
-        query.prepare("SELECT * FROM AFF_JURIDIQUE") ;
+        query.prepare("SELECT * FROM tab_affaire") ;
         query.exec();
         while(query.next())
         {
                 sum++ ;
         }
 
-        query1.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE=A") ;
+        query1.prepare("SELECT * FROM tab_affaire where TYPEAFF=A") ;
         query1.exec();
         while(query1.next())
         {
                 c1++ ;
         }
 
-        query2.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE=B") ;
+        query2.prepare("SELECT * FROM tab_affaire where TYPEAFF=B") ;
         query2.exec();
         while(query2.next())
         {
                 c2++ ;
         }
 
-        query3.prepare("SELECT * FROM AFF_JURIDIQUE where TYPE =C") ;
+        query3.prepare("SELECT * FROM tab_affaire where TYPEAFF =C") ;
         query3.exec();
         while(query3.next())
         {
@@ -234,9 +234,9 @@ void MainWindow::on_pb_stat_clicked()
     d1=(c1/sum)*100;
     d2=(c1/sum)*100;
     d3=(c1/sum)*100;
-        QBarSet *set1 = new QBarSet("TYPE A");
-        QBarSet *set2 = new QBarSet("TYPE B");
-        QBarSet *set3 = new QBarSet("TYPE C");
+        QBarSet *set1 = new QBarSet("Type A");
+        QBarSet *set2 = new QBarSet("Type B");
+        QBarSet *set3 = new QBarSet("Type C");
 
 
         // Assign values for each bar

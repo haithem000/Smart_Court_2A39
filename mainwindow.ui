@@ -155,19 +155,6 @@
        <string>Audio Recorder</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pb_stat">
-      <property name="geometry">
-       <rect>
-        <x>810</x>
-        <y>150</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Stat</string>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="le_Rechercher">
       <property name="geometry">
        <rect>
@@ -197,6 +184,19 @@
        <string>Trier_type</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pb_stat">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>160</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Stat</string>
+      </property>
+     </widget>
      <zorder>textBrowser_2</zorder>
      <zorder>label_13</zorder>
      <zorder>tab_affaire</zorder>
@@ -206,9 +206,9 @@
      <zorder>trier_date</zorder>
      <zorder>PDF</zorder>
      <zorder>recordButton</zorder>
-     <zorder>pb_stat</zorder>
      <zorder>le_Rechercher</zorder>
      <zorder>trier_type</zorder>
+     <zorder>pb_stat</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -664,7 +664,7 @@
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
-      <string>stat</string>
+      <string>Stat</string>
      </attribute>
      <widget class="QTextBrowser" name="textBrowser_3">
       <property name="geometry">
