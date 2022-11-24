@@ -1,8 +1,22 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "Citoyen.h"
 
 #include <QMainWindow>
-#include <aff_juridique.h>
+#include <QSortFilterProxyModel>
+#include <QTextTableFormat>
+#include <QStandardItemModel>
+#include <QDialog>
+#include <QFileDialog>
+#include <QDialog>
+#include <QDesktopWidget>
+#include <QSettings>
+#include <QPrinter>
+#include <QTextStream>
+#include <QFile>
+#include <QDataStream>
+#include <QTextDocument>
+
 namespace Ui {
 class MainWindow;
 }
@@ -14,16 +28,31 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QSortFilterProxyModel *proxy;
+void show_tables();
 
 private slots:
-    void on_pb_ajouter_clicked();
-    void on_pb_supprimer_clicked();
+    void on_Ajouterbutton_clicked();
 
-    void on_pb_modifier_clicked();
+    void on_Supprimerbutton_clicked();
+
+    void on_Modifierbutton_clicked();
+
+    void on_tableview_activated(const QModelIndex &index);
+
+    void on_sortid_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_searsh_textChanged(const QString &arg1);
+
+    void on_rechercher_clicked();
+
+    void on_statbouton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Aff_juridique AFF;
+    Citoyen Ctemp;
 };
 
 #endif // MAINWINDOW_H
