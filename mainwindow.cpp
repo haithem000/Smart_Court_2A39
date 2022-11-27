@@ -142,6 +142,12 @@ ui->tab_affaire->setModel(AFF.rechercher(NUMAFF,TYPEAFF,DATEAFF,AVOCAT,JUGERES))
 
 }
 
+void MainWindow::on_pb_stat_clicked()
+{
+    stat=new stat_combo();
+        stat->choix_pie();
+        stat->show();
+}
 
 //pdf : vous trouver le fichier dans le dossier build
 void MainWindow::on_PDF_clicked()
@@ -197,117 +203,6 @@ QString strStream;
     printer.setOutputFileName("MYfile.pdf");
     document->print(&printer);}
 
-
-void MainWindow::on_pb_stat_clicked()
-{
-    QSqlQuery query,query1,query2,query3;
-        qreal c1=0 ,sum=0,c2=0,c3=0;
-        query.prepare("SELECT * FROM tab_affaire") ;
-        query.exec();
-        while(query.next())
-        {
-                sum++ ;
-        }
-
-        query1.prepare("SELECT * FROM tab_affaire where TYPEAFF=A") ;
-        query1.exec();
-        while(query1.next())
-        {
-                c1++ ;
-        }
-
-        query2.prepare("SELECT * FROM tab_affaire where TYPEAFF=B") ;
-        query2.exec();
-        while(query2.next())
-        {
-                c2++ ;
-        }
-
-        query3.prepare("SELECT * FROM tab_affaire where TYPEAFF =C") ;
-        query3.exec();
-        while(query3.next())
-        {
-                c3++ ;
-        }
-
-    qreal d1,d2,d3;
-    d1=(c1/sum)*100;
-    d2=(c1/sum)*100;
-    d3=(c1/sum)*100;
-        QBarSet *set1 = new QBarSet("Type A");
-        QBarSet *set2 = new QBarSet("Type B");
-        QBarSet *set3 = new QBarSet("Type C");
-
-
-        // Assign values for each bar
-         *set1 << d1 ;
-         *set2 << d2 ;
-         *set3 << d3 ;
-
-
-        // Add all sets of data to the chart as a whole
-        // 1. Bar Chart
-        QBarSeries *series = new QBarSeries();
-
-        // 2. Stacked bar chart
-        // QHorizontalStackedBarSeries *series = new QHorizontalStackedBarSeries();
-
-        series->append(set1);
-        series->append(set2);
-        series->append(set3);
-
-
-        // Used to define the bar chart to display, title
-        // legend,
-        QChart *chart = new QChart();
-
-        // Add the chart
-        chart->addSeries(series);
-
-        // Set title
-        chart->setTitle("Statistique selon type");
-
-        // Define starting animation
-        // NoAnimation, GridAxisAnimations, SeriesAnimations
-        chart->setAnimationOptions(QChart::SeriesAnimations);
-
-        // Holds the category titles
-        QStringList categories;
-        categories << "stats";
-
-        // Adds categories to the axes
-        QBarCategoryAxis *axis = new QBarCategoryAxis();
-        axis->append(categories);
-        chart->addAxis(axis, Qt::AlignBottom);
-        series->attachAxis(axis);
-        chart->createDefaultAxes();
-
-
-        // 2. Stacked Bar chart
-
-        // Define where the legend is displayed
-        chart->legend()->setVisible(true);
-        chart->legend()->setAlignment(Qt::AlignBottom);
-
-
-        // Used to display the chart
-        QChartView *chartView = new QChartView(chart);
-        chartView->setRenderHint(QPainter::Antialiasing);
-
-         chartView->setMinimumSize(800,400);
-        chartView->setParent(ui->tableau);
-
-        // Used to change the palette
-        QPalette pal = qApp->palette();
-
-
-        // Apply palette changes to the application
-        qApp->setPalette(pal);
-}
-
-
-
-
 void MainWindow::on_le_TYPEAFF_currentIndexChanged(int index)
 {
     exp=ui->le_TYPEAFF->currentText();
@@ -333,7 +228,4 @@ void MainWindow::on_recordButton_clicked()
     ar->show();
     */
 }
-
-
-
 

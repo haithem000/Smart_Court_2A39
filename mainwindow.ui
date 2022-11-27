@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1250</width>
-    <height>622</height>
+    <width>1351</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -662,39 +662,6 @@
      <zorder>label_23</zorder>
      <zorder>pb_supprimer</zorder>
     </widget>
-    <widget class="QWidget" name="tab_5">
-     <attribute name="title">
-      <string>Stat</string>
-     </attribute>
-     <widget class="QTextBrowser" name="textBrowser_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>931</width>
-        <height>501</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QWidget
-{
-    color: #b1b1b1;
-    background-color: #C0C0C0;
-}
-</string>
-      </property>
-     </widget>
-     <widget class="QTableView" name="tableau">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>60</y>
-        <width>781</width>
-        <height>401</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
@@ -886,7 +853,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1250</width>
+     <width>1351</width>
      <height>26</height>
     </rect>
    </property>

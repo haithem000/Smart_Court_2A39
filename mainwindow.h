@@ -7,6 +7,7 @@
 #include <QtCharts>
 #include <QLineSeries>
 #include "audiorecorder.h"
+#include"stat_combo.h"
 namespace Ui {
 class MainWindow;
 }
@@ -33,7 +34,6 @@ private slots:
 
     //void on_pushButton_11_clicked();
 
-    void on_pb_stat_clicked();
 
 
     void on_le_TYPEAFF_currentIndexChanged(int index);
@@ -49,6 +49,10 @@ private slots:
 
     void on_trier_date_clicked();
 
+
+
+    void on_pb_stat_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString audio="C:/Users/PC/Documents/GitHub/Smart_Court_2A39/debug/audiorecorder.exe";
@@ -56,6 +60,7 @@ private:
     QStringList files;
     QString exp="",exp_mod="";
     audiorecorder *ar;
+    stat_combo* stat;
 };
 
 //test

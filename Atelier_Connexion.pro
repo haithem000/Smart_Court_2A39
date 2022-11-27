@@ -36,18 +36,21 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    qaudiolevel.cpp
+    qaudiolevel.cpp \
+    stat_combo.cpp
 
 HEADERS += \
  aff_juridique.h \
     audiorecorder.h \
         mainwindow.h \
     connection.h \
-    qaudiolevel.h
+    qaudiolevel.h \
+    stat_combo.h
 
 FORMS += \
         audiorecorder.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        stat_combo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
