@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "arduino.h"
 #include <QSortFilterProxyModel>
 #include <QMainWindow>
 #include <aff_juridique.h>
@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void update_label();
     QSortFilterProxyModel *proxy;
 
 
@@ -53,6 +54,10 @@ private slots:
 
     void on_pb_stat_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString audio="C:/Users/PC/Documents/GitHub/Smart_Court_2A39/debug/audiorecorder.exe";
@@ -61,6 +66,8 @@ private:
     QString exp="",exp_mod="";
     audiorecorder *ar;
     stat_combo* stat;
+    arduino A;
+        QByteArray data ;
 };
 
 //test

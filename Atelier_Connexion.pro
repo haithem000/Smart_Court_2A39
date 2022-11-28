@@ -6,6 +6,7 @@
 
 QT       += core gui sql
 QT       += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
+QT += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,6 +33,7 @@ CONFIG += c++11
 
 SOURCES += \
     aff_juridique.cpp \
+    arduino.cpp \
     audiorecorder.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -41,6 +43,7 @@ SOURCES += \
 
 HEADERS += \
  aff_juridique.h \
+    arduino.h \
     audiorecorder.h \
         mainwindow.h \
     connection.h \

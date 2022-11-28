@@ -229,3 +229,24 @@ void MainWindow::on_recordButton_clicked()
     */
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    A.write_to_arduino("1");
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    A.write_to_arduino("0");
+}
+
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+            if(data=="1")
+            ui->label_7->setText("porte ouverte");
+            else
+
+            if (data=="0")
+            ui->label_7->setText("porte fermee");
+}
