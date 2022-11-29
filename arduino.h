@@ -1,29 +1,31 @@
 #ifndef ARDUINO_H
 #define ARDUINO_H
-#include <QByteArray>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include <QByteArray>
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
-class arduino
+#include <QDebug>
+
+
+class Arduino
 {
-public:
-    arduino();
-    int connect_arduino();
-    int close_arduino();
-    int write_to_arduino(QByteArray);
-    QByteArray read_from_arduino();
-    QSerialPort* getserial();
+public:     //méthodes de la classe Arduino
+    Arduino();
+    int connect_arduino(); // permet de connecter le PC à Arduino
+    int close_arduino(); // permet de femer la connexion
+    int write_to_arduino( QByteArray ); // envoyer des données vers arduino
+    QByteArray read_from_arduino();  //recevoir des données de la carte Arduino
+    QSerialPort* getserial();   // accesseur
     QString getarduino_port_name();
 private:
-    QSerialPort *Serial;
-    static const quint16 arduino_uno_vendor_id=9025;
-    static const quint16 arduino_uno_producy_id=67;
-    QString arduino_port_name;
-    bool arduino_is_available;
-    QByteArray data;
-
+QSerialPort * serial; //Cet objet rassemble des informations (vitesse, bits de données, etc.)
+//et des fonctions (envoi, lecture de réception,…) sur ce qu’est une voie série pour Arduino.
+static const quint16 arduino_uno_vendor_id=9025;
+static const quint16 arduino_uno_producy_id=67;
+QString arduino_port_name;
+bool arduino_is_available; // tester port arduino  available
+QByteArray data;  // contenant les données lues à partir d'Arduino
 };
 
+
+
 #endif // ARDUINO_H
+

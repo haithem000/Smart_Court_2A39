@@ -9,12 +9,16 @@
 #include <QBarSeries>
 #include <QSqlQuery>
 #include <QPrinter>
+#include"arduino.h"
+#include <QSqlRecord>
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+   ui->setupUi(this);
     ui->le_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->mod_NUMAFF->setValidator(new QIntValidator(100, 999999, this));
     ui->num_supprimer->setValidator(new QIntValidator(0, 999999, this));
@@ -37,6 +41,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->mod_AVOCAT->setModel( AFF1.get_avocats("A"));
     ui->mod_JUGERES->setModel(AFF1.get_judges("A"));
+    /*************************** Arduino************************/
+
+
+              int ret=A.connect_arduino(); // lancer la connexion Ã  arduino
+              switch(ret){
+              case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                  break;
+              case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                 break;
+              case(-1):qDebug() << "arduino is not available";
+              }
+               //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+               //le slot update_label suite Ã  la reception du signal readyRead (reception des donnÃ©es).
+
+
+
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(rechEmploy()));
 
 
 }
@@ -45,6 +66,34 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::rechEmploy()
+{
+    data.append(A.read_from_arduino());
+QString ch= data.append(A.read_from_arduino());
+
+     QSqlQueryModel *model=new QSqlQueryModel();
+
+     model->setQuery("select * from AFF_JURIDIQUE where NUMAFF = '"+ch+"'");
+     QSqlRecord sr = model->record(0);
+     QString code= sr.value(3).toString();
+
+if (code!=""){
+QString  message="Numero : "+sr.value(0).toString()+"\nType Affaire : "+sr.value(1).toString()+"\nDate : "+sr.value(2).toString();
+     QMessageBox::information(this,"Employee existant  " , message ,QMessageBox::Ok);
+
+
+
+}
+else {
+    QMessageBox::critical(nullptr, QObject::tr("Employee n'existe pas"),
+             QObject::tr("Employee n'existe pas.\n"
+                         "click cancel to exit . ") , QMessageBox::Cancel);
+}
+
+}
+
+/******************************************************/
 
 
 void MainWindow::on_pb_ajouter_clicked()

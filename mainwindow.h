@@ -8,6 +8,7 @@
 #include <QLineSeries>
 #include "audiorecorder.h"
 #include"stat_combo.h"
+#include"arduino.h"
 namespace Ui {
 class MainWindow;
 }
@@ -24,6 +25,7 @@ public:
 
 
 private slots:
+    void rechEmploy();
     void on_pb_ajouter_clicked();
     void on_pb_supprimer_clicked();
 
@@ -66,7 +68,7 @@ private:
     QString exp="",exp_mod="";
     audiorecorder *ar;
     stat_combo* stat;
-    arduino A;
+    Arduino A;
         QByteArray data ;
 };
 
