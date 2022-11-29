@@ -2,12 +2,14 @@
 #include <QSqlQuery>
 #include<QtDebug>
 #include<QObject>
+#include<QString>
+#include <QDebug>
 Rendezvous::Rendezvous()
 {
 NUMR=0;ADRESSER="";TYPER="";DATER="";NUMS=0;NOMA="";NOMC="";
 }
 
-Rendezvous::Rendezvous(int num, QString type , QString adresse, QString date,int nums,QString noma,QString nomc,QString time)
+Rendezvous::Rendezvous(int num, QString type , QString adresse, QString date,int nums,QString noma,QString nomc,QString time,QString ETAT)
 {
     this->NUMR=num;
     this->TYPER=type;
@@ -17,6 +19,7 @@ Rendezvous::Rendezvous(int num, QString type , QString adresse, QString date,int
     this->NOMA=noma;
    this->NOMC=nomc;
     this->TIME=time;
+    this->ETAT=ETAT;
 }
 bool Rendezvous:: ajouter ()
 {
@@ -24,9 +27,10 @@ bool Rendezvous:: ajouter ()
 
      QString NUMR_string= QString ::number(NUMR);
    QString NUMS_string= QString ::number(NUMS);
+   //QString ETAT_string=QString ::number(ETAT);
      QSqlQuery query;
-          query.prepare("INSERT INTO TABLE1 (NUMR,TYPER, ADRESSE, DATER,NUMS,NOMA,NOMC,TIME) "
-                        "VALUES (:NUMR, :TYPER, :ADRESSE,:DATER,:NUMS,:NOMA,:NOMC,:TIME)");
+          query.prepare("INSERT INTO TABLE1 (NUMR,TYPER, ADRESSE, DATER,NUMS,NOMA,NOMC,TIME,ETAT) "
+                        "VALUES (:NUMR, :TYPER, :ADRESSE,:DATER,:NUMS,:NOMA,:NOMC,:TIME,:ETAT)");
           query.bindValue(":NUMR", NUMR_string);
           query.bindValue(":TYPER", TYPER);
           query.bindValue(":ADRESSE", ADRESSER);
@@ -35,6 +39,7 @@ bool Rendezvous:: ajouter ()
           query.bindValue(":NOMC", NOMC);
           query.bindValue(":NUMS", NUMS_string);
           query.bindValue(":TIME", TIME);
+           query.bindValue(":ETAT", ETAT);
         return  query.exec();
 
 }
@@ -103,7 +108,7 @@ QSqlQueryModel* Rendezvous ::rechercherID(QString recherche)
       model->setHeaderData(8, Qt::Horizontal, QObject::tr("PIC "));
     return model;
 }
-QSqlQueryModel* Rendezvous::recherchernoma(QString recherche)
+QSqlQueryModel* Rendezvous::rechercherIDA(QString recherche)
 {
     QSqlQueryModel* model=new QSqlQueryModel();
 
@@ -154,7 +159,7 @@ QSqlQueryModel * Rendezvous::triID()
 
 
 }
-QSqlQueryModel * Rendezvous::triNom()
+QSqlQueryModel * Rendezvous::triIDA()
 {
   QSqlQueryModel* model=new QSqlQueryModel();
   model->setQuery("SELECT * FROM TABLE1 order by NOMA");
@@ -201,7 +206,8 @@ QSqlQueryModel * Rendezvous::recherche_DATED(QDate val)
         model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom avocat"));
         model->setHeaderData(6,Qt::Horizontal,QObject::tr("nom citoyen"));
         model->setHeaderData(7,Qt::Horizontal,QObject::tr("time"));
-      //  model->setHeaderData(7,Qt::Horizontal,QObject::tr("picture"));
+       model->setHeaderData(8,Qt::Horizontal,QObject::tr("picture"));
+        model->setHeaderData(9,Qt::Horizontal,QObject::tr("ETAT"));
 
 
         return model;

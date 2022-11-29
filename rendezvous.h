@@ -8,7 +8,7 @@ class Rendezvous
 {
 public:
     Rendezvous();
-    Rendezvous(int, QString, QString, QString,int ,QString,QString,QString);
+    Rendezvous(int, QString, QString, QString,int ,QString,QString,QString,QString);
 
     int getnumr(){return NUMR;}
     int getnumrs(){return NUMS;}
@@ -35,8 +35,9 @@ public:
     bool supprimer (int);
     bool modifier(int );
     QSqlQueryModel* rechercherID(QString );
-    QSqlQueryModel* recherchernoma(QString recherche);
+    QSqlQueryModel* rechercherIDA(QString recherche);
     QSqlQueryModel * triID();
+     QSqlQueryModel * triIDA();
     QSqlQueryModel * triNom();
      QSqlQueryModel * triNomC();
      QSqlQueryModel* recherchernomc(QString );
@@ -46,7 +47,7 @@ public:
 
 private :
     int NUMR,NUMS;
-    QString ADRESSER,TYPER,DATER,NOMA,NOMC,TIME;
+    QString ADRESSER,TYPER,DATER,NOMA,NOMC,TIME,ETAT;
 };
 
 #endif // RENDEZVOUS_H

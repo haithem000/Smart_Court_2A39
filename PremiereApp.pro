@@ -3,7 +3,7 @@ QT       += core gui charts
 QT += printsupport
 QT += qml quick sql
 QT += charts
-
+QT       += core gui serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino1.cpp \
     connection.cpp \
     dialog.cpp \
     excel.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
     rendezvous.cpp
 
 HEADERS += \
+    arduino1.h \
     connection.h \
     dialog.h \
     excel.h \
