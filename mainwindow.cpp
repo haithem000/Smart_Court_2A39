@@ -14,6 +14,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+           switch(ret){
+           case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+               break;
+           case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+              break;
+           case(-1):qDebug() << "arduino is not available";
+           }
     ui->tableview->setModel(Ctemp.afficher());
     ui->combosupp->setModel(Ctemp.get_id());
     show_tables();
@@ -37,6 +45,7 @@ void MainWindow::on_Ajouterbutton_clicked()
           {
            ui->tableview->setModel(Ctemp.afficher());
            ui->combosupp->setModel(Ctemp.get_id());
+           A.write_to_arduino("1");
            QMessageBox::information(nullptr, QObject::tr("Ajouter espace"),
                        QObject::tr("Patient ajouter.\n""Click Cancel to exit."), QMessageBox::Cancel);
        }
@@ -44,6 +53,7 @@ void MainWindow::on_Ajouterbutton_clicked()
        else
 
        {
+           A.write_to_arduino("2");
            ui->tableview->setModel(Ctemp.afficher());
            ui->combosupp->setModel(Ctemp.get_id());
            QMessageBox::critical(nullptr, QObject::tr("not Ajouter espace"),
@@ -61,6 +71,7 @@ void MainWindow::on_Supprimerbutton_clicked()
            {
             ui->tableview->setModel(Ctemp.afficher());
             ui->combosupp->setModel(Ctemp.get_id());
+            A.write_to_arduino("3");
             QMessageBox::information(nullptr, QObject::tr("OK"),
                         QObject::tr("Suppression effectuée.\n""Click Cancel to exit."), QMessageBox::Cancel);
         }
@@ -311,7 +322,7 @@ void MainWindow::on_statbouton_clicked()
                 chartView->setRenderHint(QPainter::Antialiasing);
 
                  chartView->setMinimumSize(621,192);
-                chartView->setParent(ui->tabstat);
+                chartView->setParent(ui->tableaustat);
                 chart->setTheme(QChart::ChartThemeBlueIcy);
                 chartView->show();
 

@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "Citoyen.h"
-
+#include "arduino.h"
 #include <QMainWindow>
 #include <QSortFilterProxyModel>
 #include <QTextTableFormat>
@@ -16,6 +16,8 @@
 #include <QFile>
 #include <QDataStream>
 #include <QTextDocument>
+
+
 
 namespace Ui {
 class MainWindow;
@@ -44,7 +46,7 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_searsh_textChanged(const QString &arg1);
+
 
     void on_rechercher_clicked();
 
@@ -53,6 +55,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Citoyen Ctemp;
+    QByteArray data; // variable contenant les données reçues
+
+    arduino A; // objet temporaire
 };
 
 #endif // MAINWINDOW_H

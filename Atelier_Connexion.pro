@@ -6,7 +6,8 @@
 
 QT       += core gui sql
 QT       +=core gui charts
-QT += printsupport
+QT       += printsupport
+QT       +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,18 +29,19 @@ CONFIG += c++11
 
 SOURCES += \
     Citoyen.cpp \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     Citoyen.h \
+    arduino.h \
         mainwindow.h \
     connection.h
 
 FORMS += \
-        mainwindow.ui \
-        stat_combo.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
