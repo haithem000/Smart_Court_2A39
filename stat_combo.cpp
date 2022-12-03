@@ -64,4 +64,3 @@ stat_combo::~stat_combo()
 
     chartView->show();
     }
-

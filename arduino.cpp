@@ -79,4 +79,3 @@ int Arduino::write_to_arduino( QByteArray d)
 
 
 }
-

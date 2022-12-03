@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1351</width>
-    <height>663</height>
+    <width>1237</width>
+    <height>696</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,17 +20,11 @@
       <x>300</x>
       <y>0</y>
       <width>931</width>
-      <height>531</height>
+      <height>551</height>
      </rect>
     </property>
-    <property name="tabPosition">
-     <enum>QTabWidget::North</enum>
-    </property>
-    <property name="tabShape">
-     <enum>QTabWidget::Triangular</enum>
-    </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,26 +34,26 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>80</y>
-        <width>751</width>
-        <height>351</height>
+        <y>90</y>
+        <width>731</width>
+        <height>411</height>
        </rect>
       </property>
      </widget>
      <widget class="QTextBrowser" name="textBrowser_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>961</width>
-        <height>501</height>
+        <x>10</x>
+        <y>20</y>
+        <width>911</width>
+        <height>531</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QWidget
 {
     color: #b1b1b1;
-    background-color: #C0C0C0;
+    background-color: #4682b4;
 }
 </string>
       </property>
@@ -67,22 +61,22 @@
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>10</y>
+        <x>480</x>
+        <y>0</y>
         <width>56</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Afficher&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>Afficher</string>
       </property>
      </widget>
      <widget class="Line" name="line_5">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>10</y>
-        <width>811</width>
+        <x>530</x>
+        <y>0</y>
+        <width>401</width>
         <height>16</height>
        </rect>
       </property>
@@ -93,9 +87,74 @@
      <widget class="Line" name="line_6">
       <property name="geometry">
        <rect>
+        <x>460</x>
+        <y>0</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PDF">
+      <property name="geometry">
+       <rect>
+        <x>800</x>
+        <y>260</y>
+        <width>91</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PDF</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_stat">
+      <property name="geometry">
+       <rect>
+        <x>800</x>
+        <y>210</y>
+        <width>91</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Stat</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ajouter</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_9">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>0</y>
+        <width>381</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_10">
+      <property name="geometry">
+       <rect>
         <x>0</x>
-        <y>10</y>
-        <width>41</width>
+        <y>0</y>
+        <width>16</width>
         <height>16</height>
        </rect>
       </property>
@@ -106,8 +165,8 @@
      <widget class="QPushButton" name="rechercher">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>30</y>
+        <x>420</x>
+        <y>40</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -116,51 +175,12 @@
        <string>recherche</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="trier_date">
-      <property name="geometry">
-       <rect>
-        <x>810</x>
-        <y>280</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>trier_date</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="PDF">
-      <property name="geometry">
-       <rect>
-        <x>810</x>
-        <y>200</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PDF</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="recordButton">
-      <property name="geometry">
-       <rect>
-        <x>800</x>
-        <y>320</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Audio Recorder</string>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="le_Rechercher">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>30</y>
-        <width>191</width>
+        <x>560</x>
+        <y>40</y>
+        <width>161</width>
         <height>24</height>
        </rect>
       </property>
@@ -171,30 +191,43 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="trier_type">
+     <widget class="QPushButton" name="recorder">
       <property name="geometry">
        <rect>
-        <x>810</x>
-        <y>240</y>
-        <width>91</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Trier_type</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_stat">
-      <property name="geometry">
-       <rect>
-        <x>810</x>
-        <y>160</y>
+        <x>800</x>
+        <y>310</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>Stat</string>
+       <string>recorder</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="trier_type">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>30</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier_type</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="trier_date">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier_date</string>
       </property>
      </widget>
      <zorder>textBrowser_2</zorder>
@@ -202,113 +235,103 @@
      <zorder>tab_affaire</zorder>
      <zorder>line_5</zorder>
      <zorder>line_6</zorder>
-     <zorder>rechercher</zorder>
-     <zorder>trier_date</zorder>
      <zorder>PDF</zorder>
-     <zorder>recordButton</zorder>
-     <zorder>le_Rechercher</zorder>
-     <zorder>trier_type</zorder>
      <zorder>pb_stat</zorder>
+     <zorder>label_16</zorder>
+     <zorder>line_9</zorder>
+     <zorder>line_10</zorder>
+     <zorder>rechercher</zorder>
+     <zorder>le_Rechercher</zorder>
+     <zorder>recorder</zorder>
+     <zorder>trier_type</zorder>
+     <zorder>trier_date</zorder>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tab_3">
      <attribute name="title">
       <string>CRUD</string>
      </attribute>
+     <widget class="QTextBrowser" name="textBrowser_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>921</width>
+        <height>521</height>
+       </rect>
+      </property>
+     </widget>
      <widget class="QTextBrowser" name="textBrowser_5">
       <property name="geometry">
        <rect>
-        <x>-5</x>
-        <y>1</y>
-        <width>931</width>
-        <height>521</height>
+        <x>10</x>
+        <y>20</y>
+        <width>401</width>
+        <height>211</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QWidget
 {
     color: #b1b1b1;
-    background-color: #C0C0C0;
+    background-color: #4682b4;
 }
 </string>
-      </property>
-     </widget>
-     <widget class="Line" name="line_13">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>10</y>
-        <width>821</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_25">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>10</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ajouter&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="Line" name="line_14">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>10</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_NUMAFF">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>70</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowser_9">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>481</width>
-        <height>221</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>70</y>
+        <x>30</x>
+        <y>40</y>
         <width>56</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>numero</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>80</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>type</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>date</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_NUMAFF">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>40</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="pb_ajouter">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>200</y>
+        <x>260</x>
+        <y>150</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -317,310 +340,39 @@
        <string>Ajouter</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QTextBrowser" name="textBrowser_6">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>110</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>150</y>
-        <width>51</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>90</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Avocat&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>130</y>
-        <width>61</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Juge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QDateEdit" name="le_DATEAFF">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>150</y>
-        <width>110</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="le_TYPEAFF">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>110</y>
-        <width>111</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>B</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QComboBox" name="l_AVOCAT">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>90</y>
-        <width>131</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="le_JUGERES">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>130</y>
-        <width>131</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="tab_mod">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>280</y>
-        <width>521</width>
+        <x>450</x>
+        <y>20</y>
+        <width>401</width>
         <height>211</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLineEdit" name="mod_NUMAFF">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>310</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="mod_TYPEAFF">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>360</y>
-        <width>111</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>A</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>B</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>C</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QDateEdit" name="mod_DATEAFF">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>410</y>
-        <width>110</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="mod_AVOCAT">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>340</y>
-        <width>121</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>310</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>360</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>410</y>
-        <width>51</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>340</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Avocat&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_22">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>390</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Juge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="mod_JUGERES">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>380</y>
-        <width>121</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_modifier">
-      <property name="geometry">
-       <rect>
-        <x>670</x>
-        <y>440</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>modifier</string>
-      </property>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowser">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>310</y>
-        <width>231</width>
-        <height>151</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+    color: #b1b1b1;
+    background-color: #4682b4;
+}
+</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="num_supprimer">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>340</y>
-        <width>113</width>
+        <x>510</x>
+        <y>70</y>
+        <width>191</width>
         <height>22</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>340</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pb_supprimer">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>400</y>
+        <x>660</x>
+        <y>140</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -629,237 +381,322 @@
        <string>supprimer</string>
       </property>
      </widget>
-     <zorder>textBrowser_5</zorder>
-     <zorder>line_13</zorder>
-     <zorder>label_25</zorder>
-     <zorder>line_14</zorder>
-     <zorder>textBrowser_9</zorder>
-     <zorder>le_NUMAFF</zorder>
-     <zorder>label</zorder>
-     <zorder>pb_ajouter</zorder>
-     <zorder>label_2</zorder>
-     <zorder>label_3</zorder>
-     <zorder>label_19</zorder>
-     <zorder>label_20</zorder>
-     <zorder>le_DATEAFF</zorder>
-     <zorder>le_TYPEAFF</zorder>
-     <zorder>l_AVOCAT</zorder>
-     <zorder>le_JUGERES</zorder>
-     <zorder>tab_mod</zorder>
-     <zorder>mod_NUMAFF</zorder>
-     <zorder>mod_TYPEAFF</zorder>
-     <zorder>mod_DATEAFF</zorder>
-     <zorder>mod_AVOCAT</zorder>
-     <zorder>label_15</zorder>
-     <zorder>label_17</zorder>
-     <zorder>label_18</zorder>
-     <zorder>label_21</zorder>
-     <zorder>label_22</zorder>
-     <zorder>mod_JUGERES</zorder>
-     <zorder>pb_modifier</zorder>
-     <zorder>textBrowser</zorder>
-     <zorder>num_supprimer</zorder>
-     <zorder>label_23</zorder>
-     <zorder>pb_supprimer</zorder>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>arduino</string>
-     </attribute>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QTableWidget" name="tab_mod">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>160</y>
-        <width>93</width>
-        <height>28</height>
+        <x>420</x>
+        <y>310</y>
+        <width>411</width>
+        <height>151</height>
        </rect>
-      </property>
-      <property name="text">
-       <string>Fermer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QLineEdit" name="mod_NUMAFF">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>160</y>
+        <x>510</x>
+        <y>330</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_7">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>280</y>
+        <width>471</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+    color: #b1b1b1;
+    background-color: #4682b4;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_modifier">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>410</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>Ouvrir</string>
+       <string>modifier</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>330</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>numero</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>360</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>type</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>400</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>date</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>270</y>
-        <width>101</width>
-        <height>31</height>
+        <x>20</x>
+        <y>160</y>
+        <width>56</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>ETAT</string>
+       <string>Juge</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_7">
+     <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>280</y>
-        <width>101</width>
-        <height>31</height>
+        <x>20</x>
+        <y>190</y>
+        <width>56</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string>Avocat</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>370</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Avocat</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>330</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Juge</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="le_TYPEAFF">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="mod_TYPEAFF">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>370</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>B</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="le_JUGERES">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>73</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="l_AVOCAT">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>190</y>
+        <width>73</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="mod_AVOCAT">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>370</y>
+        <width>73</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="mod_JUGERES">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>330</y>
+        <width>73</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="le_DATEAFF">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>120</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="mod_DATEAFF">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>410</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <zorder>textBrowser_4</zorder>
+     <zorder>textBrowser_5</zorder>
+     <zorder>label</zorder>
+     <zorder>label_2</zorder>
+     <zorder>label_3</zorder>
+     <zorder>le_NUMAFF</zorder>
+     <zorder>pb_ajouter</zorder>
+     <zorder>textBrowser_6</zorder>
+     <zorder>num_supprimer</zorder>
+     <zorder>pb_supprimer</zorder>
+     <zorder>textBrowser_7</zorder>
+     <zorder>tab_mod</zorder>
+     <zorder>mod_NUMAFF</zorder>
+     <zorder>pb_modifier</zorder>
+     <zorder>label_15</zorder>
+     <zorder>label_17</zorder>
+     <zorder>label_18</zorder>
+     <zorder>label_4</zorder>
+     <zorder>label_14</zorder>
+     <zorder>label_20</zorder>
+     <zorder>label_19</zorder>
+     <zorder>le_TYPEAFF</zorder>
+     <zorder>mod_TYPEAFF</zorder>
+     <zorder>le_JUGERES</zorder>
+     <zorder>l_AVOCAT</zorder>
+     <zorder>mod_AVOCAT</zorder>
+     <zorder>mod_JUGERES</zorder>
+     <zorder>le_DATEAFF</zorder>
+     <zorder>mod_DATEAFF</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Arduino</string>
+     </attribute>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>261</width>
-      <height>251</height>
+      <width>301</width>
+      <height>631</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../Users/PC/Downloads/vvv.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>240</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Account</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>280</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des affaires</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_12">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>320</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des salles</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_13">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>360</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des avocats</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_14">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>410</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des rendez-vous</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_15">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>450</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des salles</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_16">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>500</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gestion des employes</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>0</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Menu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <property name="styleSheet">
+     <string notr="true">QWidget
+{
+    color: #b1b1b1;
+    background-color: #ADD8E6;
+}
+</string>
     </property>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>0</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>16</width>
-      <height>21</height>
+      <x>90</x>
+      <y>10</y>
+      <width>211</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -869,32 +706,243 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Menu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
       <x>0</x>
-      <y>-10</y>
-      <width>301</width>
-      <height>551</height>
+      <y>10</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>280</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>280</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>370</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>470</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>370</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>570</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>470</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>340</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Citoyen</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>430</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Employé</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>430</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Affaire</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>340</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Avocat</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>530</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Rdv</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>530</y>
+      <width>56</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Salle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>201</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Users/PC/Desktop/2eme/PROJET/khedma/vvv.png</pixmap>
+     <pixmap>../Users/PC/Downloads/ss.png</pixmap>
     </property>
    </widget>
-   <zorder>label_5</zorder>
    <zorder>tabWidget</zorder>
-   <zorder>label_6</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>pushButton_10</zorder>
-   <zorder>pushButton_12</zorder>
-   <zorder>pushButton_13</zorder>
-   <zorder>pushButton_14</zorder>
-   <zorder>pushButton_15</zorder>
-   <zorder>pushButton_16</zorder>
-   <zorder>label_26</zorder>
-   <zorder>line</zorder>
+   <zorder>textBrowser</zorder>
    <zorder>line_2</zorder>
+   <zorder>line</zorder>
+   <zorder>label_5</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>pushButton_5</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>pushButton_7</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_11</zorder>
+   <zorder>label_12</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1237</width>
+     <height>26</height>
+    </rect>
+   </property>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -905,21 +953,8 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1351</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
- <slots>
-  <slot>creerPDF()</slot>
- </slots>
 </ui>

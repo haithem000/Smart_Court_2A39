@@ -176,7 +176,6 @@ void MainWindow::on_trier_type_clicked()
 /*void MainWindow::on_trier_avocat_clicked()
 {
     ui->tab_affaire->setModel(AFF.trier_type());
-
 }*/
 
 void MainWindow::on_rechercher_clicked()
@@ -269,7 +268,7 @@ void MainWindow::on_mod_TYPEAFF_currentIndexChanged(int indexx)
 }
 
 
-void MainWindow::on_recordButton_clicked()
+void MainWindow::on_recorder_clicked()
 {
     QProcess *process = new QProcess(this);
     process->start(audio);
@@ -299,3 +298,5 @@ void MainWindow::update_label()
             if (data=="0")
             ui->label_7->setText("porte fermee");
 }
+
+

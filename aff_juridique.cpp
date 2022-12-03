@@ -112,7 +112,6 @@ QSqlQueryModel* Aff_juridique::trier_type()
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Date"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Avocat"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Juge"));
-
  return model;
 }*/
 QSqlQueryModel* Aff_juridique::rechercher(int NUMAFF, QString TYPEAFF, QString DATEAFF, QString AVOCAT, QString JUGERES)

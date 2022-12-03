@@ -102,5 +102,3 @@ void audiorecorder::toggleRecord()
     }
 }
 
-
-

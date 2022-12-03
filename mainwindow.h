@@ -60,6 +60,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_9_clicked();
+
+    void on_recorder_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString audio="C:/Users/PC/Documents/GitHub/Smart_Court_2A39/debug/audiorecorder.exe";
