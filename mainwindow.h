@@ -43,9 +43,6 @@ private slots:
     //void on_mod_TYPEAFF_currentIndexChanged(int index);
 
 
-    void on_recordButton_clicked();
-
-
     void on_mod_TYPEAFF_currentIndexChanged(int index);
 
     void on_trier_type_clicked();
@@ -59,9 +56,6 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
-
-    void on_pushButton_9_clicked();
-
     void on_recorder_clicked();
 
 private:
