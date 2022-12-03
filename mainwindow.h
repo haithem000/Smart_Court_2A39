@@ -9,6 +9,33 @@
 #include "audiorecorder.h"
 #include"stat_combo.h"
 #include"arduino.h"
+#include "avocat.h"
+QT_BEGIN_NAMESPACE
+/*    */
+#include <QPixmap>
+#include "rendezvous.h"
+
+#include "citoyen.h"
+
+
+/***************saadani************************/
+
+#include <QTextTableFormat>
+#include <QStandardItemModel>
+#include <QDialog>
+#include <QFileDialog>
+#include <QDialog>
+#include <QDesktopWidget>
+#include <QSettings>
+#include <QPrinter>
+#include <QTextStream>
+#include <QFile>
+#include <QDataStream>
+#include <QTextDocument>
+
+/***************saadani***********************/
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -54,9 +81,103 @@ private slots:
     void on_pb_stat_clicked();
 
     void on_pushButton_2_clicked();
+    void on_pushButton_3_clicked();
+    void on_pushButton_5_clicked();
 
     void on_pushButton_clicked();
     void on_recorder_clicked();
+
+    /*     ****************************wejden*******************************                                           */
+
+    void on_pb_ajouter_2_clicked();
+
+        void on_pb_supprimer_2_clicked();
+
+        void on_pb_modifier_2_clicked();
+
+        //void on_pushButton_15_clicked();
+
+        void on_pushButton_9_clicked();
+/*******/
+        void on_pushButton_8_clicked();
+/*******/
+        //void on_pushButton_10_clicked();
+
+        void on_pushButton_7_stat_clicked();
+
+       // void on_pushButton_4_clicked();
+
+        void on_pushButton_4pdf1_clicked();
+
+        void on_pushButton_5pdf2_clicked();
+
+        //void on_pushButton_4_Excel_clicked();
+
+
+        void on_aff_clicked();
+        void on_photo_clicked();
+
+
+
+        void on_calendarWidget_clicked(const QDate &date);
+
+        void on_calendrier_activated(const QModelIndex &index);
+        void affcherRendezvousArduino();
+
+   /*     ****************************selim*******************************                                           */
+
+            //void on_MainWindow_iconSizeChanged(const QSize &iconSize);
+
+            //void on_pushButton_10_clicked();
+
+            //void on_pushButton_11_clicked();
+
+            void on_pushButton_supprimer_clicked();
+
+            void on_pushButton_13_clicked();
+
+            void on_pushButton_recherche_clicked();
+
+            void on_pushButton_trprix_clicked();
+
+            void on_pushButton_trspec_clicked();
+
+            //void on_pushButton_valider_clicked();
+
+            void on_pushButton_pdf_clicked();
+
+            void on_statboutton_2_clicked();
+
+
+            void on_pushButton_calc_clicked();
+      //  void affcherRendezvousArduino();
+
+
+            void on_pushButton_clear_clicked();
+
+            /***************************selim*************************************/
+
+            void on_pushButton_14_clicked();
+
+            /***************************saadani*********************************/
+            void on_Ajouterbutton_clicked();
+
+            void on_Supprimerbutton_clicked();
+
+            void on_Modifierbutton_clicked();
+
+            void on_tableview_activated(const QModelIndex &index);
+
+            void on_sortid_clicked();
+
+            void on_saadeni_stat_clicked();
+
+
+
+            void on_rechercher_2_clicked();
+
+            void on_statbouton_clicked();
+            /**********************saadani**********************************************************/
 
 private:
     Ui::MainWindow *ui;
@@ -65,9 +186,12 @@ private:
     QStringList files;
     QString exp="",exp_mod="";
     audiorecorder *ar;
-    stat_combo* stat;
+    //stat_combo* stat;
     Arduino A;
         QByteArray data ;
+        Rendezvous r;
+        avocat a;
+         Citoyen Ctemp;
 };
 
 //test

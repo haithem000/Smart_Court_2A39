@@ -3,7 +3,6 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
 QT       += core gui sql
 QT       += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
 QT += serialport
@@ -35,25 +34,36 @@ SOURCES += \
     aff_juridique.cpp \
     arduino.cpp \
     audiorecorder.cpp \
+    avocat.cpp \
+    calculatrice.cpp \
+    citoyen.cpp \
+    dialog.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     qaudiolevel.cpp \
+    rendezvous.cpp \
     stat_combo.cpp
 
 HEADERS += \
  aff_juridique.h \
     arduino.h \
     audiorecorder.h \
+    avocat.h \
+    calculatrice.h \
+    citoyen.h \
+    dialog.h \
         mainwindow.h \
     connection.h \
     qaudiolevel.h \
+    rendezvous.h \
     stat_combo.h
 
 FORMS += \
         audiorecorder.ui \
-        mainwindow.ui \
-        stat_combo.ui
+ calculatrice.ui \
+        dialog.ui \
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

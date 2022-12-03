@@ -10,6 +10,10 @@
 #include <QtCharts>
 #include <QChartView>
 #include <iostream>
+
+#include "avocat.h"
+#include <QtCharts>
+using namespace::std;
 using namespace std;
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -50,6 +54,105 @@ void Dialog::afficher()
     QPieSlice *slice1 = series->slices().at(1);
     slice1->setLabelVisible();
 
+
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->legend()->hide();
+
+    QChartView *chartView = new QChartView(chart,this);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setMinimumSize(420,300);
+    chartView->show();
+}
+
+/*****************************************selim*******************************************************/
+
+void Dialog::stats()
+{
+
+    QSqlQuery query0,query1,query2,query3;
+        float valCiv=0,valPen=0,valAff=0,items=0;
+        query0.prepare("select * from AVOCAT");
+        query0.exec();
+        query1.prepare("select * from AVOCAT where SPEC =:Civiliste");
+        query1.bindValue(":Civiliste","Civiliste");
+        query1.exec();
+        query2.prepare("select * from AVOCAT where SPEC =:Penaliste");
+        query2.bindValue(":Penaliste","Penaliste");
+        query2.exec();
+        query3.prepare("select * from AVOCAT where SPEC =:Affaires");
+        query3.bindValue(":Affaires","Affaires");
+        query3.exec();
+        while(query0.next()){items++;};
+        while(query1.next()){valCiv++;};
+        while(query2.next()){valPen++;};
+        while(query3.next()){valAff++;}
+
+        valCiv=valCiv/items;
+        valPen=valPen/items;
+        valAff=valAff/items;
+
+        QPieSeries *series = new QPieSeries();
+        series->append("Civiliste",valCiv);
+        series->append("Penaliste",valPen);
+        series->append("Affaires",valAff);
+
+        QPieSlice *slice0 = series->slices().at(0);
+        slice0->setLabelVisible();
+        QPieSlice *slice1 = series->slices().at(1);
+        slice1->setLabelVisible();
+        QPieSlice *slice2 = series->slices().at(2);
+        slice2->setLabelVisible();
+
+
+
+
+        QChart *chart = new QChart();
+        chart->addSeries(series);
+        chart->legend()->hide();
+
+        QChartView *chartView = new QChartView(chart,this);
+           chartView->setRenderHint(QPainter::Antialiasing);
+           chartView->setMinimumSize(420,300);
+           chartView->show();
+
+}
+/***************************************haithem********************************************************/
+void Dialog::statistique()
+{QSqlQuery query0,query1,query2,query3;
+    float valEl=0,valPre=0,items=0;
+    query0.prepare("select * from AFF_JURIDIQUE");
+    query0.exec();
+    query1.prepare("select * from AFF_JURIDIQUE where TYPEAFF =:A");
+    query1.bindValue(":A","A");
+    query1.exec();
+    query2.prepare("select * from AFF_JURIDIQUE where TYPEAFF =:B ");
+    query2.bindValue(":B","B");
+    query2.exec();
+    query3.prepare("select * from AFF_JURIDIQUE where TYPEAFF =:C ");
+    query3.bindValue(":C","C");
+    query3.exec();
+
+    while(query0.next()){items++;};
+    while(query1.next()){valEl++;};
+    while(query2.next()){valPre++;};
+     while(query3.next()){valPre++;};
+
+    valEl=valEl/items;
+    valPre=valPre/items;
+    //cout << valEl << endl;
+    QPieSeries *series = new QPieSeries();
+    series->append("A ",valEl);
+    series->append("B",valPre);
+     series->append("C",valPre);
+
+    QPieSlice *slice0 = series->slices().at(0);
+    slice0->setLabelVisible();
+    QPieSlice *slice1 = series->slices().at(1);
+    slice1->setLabelVisible();
+    QPieSlice *slice2 = series->slices().at(2);
+    slice2->setLabelVisible();
 
 
     QChart *chart = new QChart();

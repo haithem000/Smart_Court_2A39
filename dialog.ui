@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>707</width>
-    <height>571</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QTableView" name="table_rec">
    <property name="geometry">
     <rect>
-     <x>95</x>
-     <y>101</y>
-     <width>441</width>
-     <height>301</height>
+     <x>80</x>
+     <y>50</y>
+     <width>256</width>
+     <height>192</height>
     </rect>
    </property>
   </widget>

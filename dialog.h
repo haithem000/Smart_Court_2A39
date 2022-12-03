@@ -15,6 +15,8 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
  void afficher();
+  void stats();
+  void statistique();
 private:
     Ui::Dialog *ui;
 };
