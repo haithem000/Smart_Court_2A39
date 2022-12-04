@@ -10,6 +10,8 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QtCore/QDebug>
+
+
 QT_CHARTS_USE_NAMESPACE
 
 

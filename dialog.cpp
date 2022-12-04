@@ -209,3 +209,43 @@ void Dialog::sttat()
            chartView->show();
 
 }
+
+
+/********************************nesserine*****************************************************************/
+void Dialog::statis()
+{QSqlQuery query0,query1,query2;
+    float valEl=0,valPre=0,items=0;
+    query0.prepare("select * from EMPLOYE");
+    query0.exec();
+    query1.prepare("select * from EMPLOYE where ADRESSE =:tunis1");
+    query1.bindValue(":tunis1","tunis1");
+    query1.exec();
+    query2.prepare("select * from EMPLOYE where ADRESSE =:tunis2 ");
+    query2.bindValue(":tunis2","tunis2");
+    query2.exec();
+
+    while(query0.next()){items++;};
+    while(query1.next()){valEl++;};
+    while(query2.next()){valPre++;};
+
+    valEl=valEl/items;
+    valPre=valPre/items;
+    //cout << valEl << endl;
+    QPieSeries *series = new QPieSeries();
+    series->append("tunis1 ",valEl);
+    series->append("tunis2",valPre);
+    QPieSlice *slice0 = series->slices().at(0);
+    slice0->setLabelVisible();
+    QPieSlice *slice1 = series->slices().at(1);
+    slice1->setLabelVisible();
+
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->legend()->hide();
+
+    QChartView *chartView = new QChartView(chart,this);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setMinimumSize(420,300);
+    chartView->show();
+}

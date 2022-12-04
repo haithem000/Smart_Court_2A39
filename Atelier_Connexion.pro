@@ -38,6 +38,8 @@ SOURCES += \
     calculatrice.cpp \
     citoyen.cpp \
     dialog.cpp \
+    employee.cpp \
+    login.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -54,6 +56,8 @@ HEADERS += \
     calculatrice.h \
     citoyen.h \
     dialog.h \
+    employee.h \
+    login.h \
         mainwindow.h \
     connection.h \
     qaudiolevel.h \
@@ -65,6 +69,7 @@ FORMS += \
         audiorecorder.ui \
  calculatrice.ui \
         dialog.ui \
+    login.ui \
         mainwindow.ui
 
 # Default rules for deployment.

@@ -18,6 +18,7 @@ public:
   void stats();
   void sttat();
   void statistique();
+  void statis();
 private:
     Ui::Dialog *ui;
 };

@@ -30,6 +30,8 @@
 #include <QFile>
 
 #include "salle.h"
+#include "employee.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -1421,3 +1423,140 @@ void MainWindow::on_pushButton_77_clicked()
     d.sttat();
     d.exec();
 }
+
+
+
+/*************************************nesserine************************************************/
+
+void MainWindow::on_pb_ajouter_3_clicked()
+
+
+{
+int ID=ui->le_id->text().toInt();
+    QString NOM=ui->le_nom->text();
+    QString PRENOM=ui->le_prenom->text();
+            QString MAIL=ui->le_mail->text();
+
+            int MOTDEPASSE=ui->le_motdepasse->text().toInt();
+            QString ADRESSE=ui->l_adresse->currentText();
+    Employee E(ID,NOM,PRENOM,MAIL,MOTDEPASSE,ADRESSE);
+    bool test=E.ajouter();
+    QMessageBox msgBox;
+    if(test)
+      {  msgBox.setText("ajout avec succes");
+    ui->tab_employee->setModel(E.afficher());}
+
+    else
+        msgBox.setText("Echec d'ajout");
+    msgBox.exec();
+}
+
+void MainWindow::on_pb_supprimer_3_clicked()
+{
+    Employee E1; E1.setID(ui->le_id_supp->text().toInt());
+    bool test=E1.supprimer(E1.getID());
+    QMessageBox msgBox;
+    if(test){
+    msgBox.setText("suppression avec succes");
+    ui->tab_employee->setModel(E.afficher());}
+
+    else
+        msgBox.setText("Echec de suppression");
+    msgBox.exec();
+}
+
+
+void MainWindow::on_pb_modifier_3_clicked()
+{
+    int ID=ui->mod_ID->text().toInt();
+    QString NOM=ui->mod_NOM->text();
+    QString PRENOM=ui->mod_PRENOM->text();
+    QString MAIL=ui->mod_MAIL->text();
+    int MOTDEPASSE=ui->mod_MOTDEPASSE->text().toInt();
+
+    QString ADRESSE=ui->mod_ADRESSE->text();
+
+    Employee E(ID,NOM,PRENOM,MAIL,MOTDEPASSE,ADRESSE);
+
+
+    bool test=E.modifier(ID);
+        if(test)
+        {
+            //refrech
+            ui->tab_employee->setModel(E.afficher());
+            QMessageBox::information(nullptr, QObject::tr("ok"),QObject::tr("Modification avec succes.\n" "Click Close to exit."), QMessageBox::Close);
+    }else
+            QMessageBox::critical(nullptr, QObject::tr("not ok"),QObject::tr("Modification echoue.\n" "Click Close to exit."), QMessageBox::Close);
+}
+
+void MainWindow::on_recherche_2_clicked()
+{
+     ui->tab_employee->setModel(E.recherche());
+}
+
+void MainWindow::on_tri_clicked()
+{
+  ui->tab_employee->setModel(E.tri());
+
+}
+
+void MainWindow::on_Pdf_clicked()
+{
+
+QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->tab_employee->model()->rowCount();
+            const int columnCount =ui->tab_employee->model()->columnCount();
+
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("eleve")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<h1>Liste Des Employes</h1>"
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->tab_employee->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->tab_employee->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->tab_employee->isColumnHidden(column)) {
+                               QString data = ui->tab_employee->model()->data(ui->tab_employee->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+
+
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+
+
+    //QTextDocument document;
+    //document.setHtml(html);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName("test.pdf");
+    document->print(&printer);}
+void MainWindow::on_pushButton223_clicked()
+{
+    Dialog d;
+    d.statis();
+    d.exec();
+}
+
+
