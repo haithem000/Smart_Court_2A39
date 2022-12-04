@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "arduino.h"
+#include"employee.h"
 #include <QSortFilterProxyModel>
 #include <QMainWindow>
 #include <aff_juridique.h>
@@ -84,8 +85,7 @@ private slots:
     void on_pushButton_3_clicked();
     void on_pushButton_5_clicked();
     void on_pushButton_7_clicked();
-    void on_pushButton_4_clicked();
-
+     void on_pushButton_4_clicked();
     void on_pushButton333_clicked();
     void on_recorder_clicked();
 
@@ -204,6 +204,27 @@ private slots:
 
 /********************************************************************************************/
 
+
+
+ /****************************nesrine********************************************************/
+            void on_pb_ajouter_3_clicked();
+
+
+
+            void on_pb_supprimer_3_clicked();
+
+           void on_pb_modifier_3_clicked();
+           void on_recherche_2_clicked();
+           void on_tri_clicked();
+
+           void on_Pdf_clicked();
+           void on_pushButton223_clicked();
+
+          // void on_pb_modifier_2_clicked();
+
+          // void on_pb_modifier_3_clicked();
+ /****************************nesrine******************************************************/
+
 private:
     Ui::MainWindow *ui;
     QString audio="C:/Users/PC/Documents/GitHub/Smart_Court_2A39/debug/audiorecorder.exe";
@@ -217,6 +238,7 @@ private:
         Rendezvous r;
         avocat a;
          Citoyen Ctemp;
+         Employee E;
 };
 
 //test
