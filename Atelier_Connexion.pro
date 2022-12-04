@@ -43,6 +43,7 @@ SOURCES += \
     connection.cpp \
     qaudiolevel.cpp \
     rendezvous.cpp \
+    salle.cpp \
     stat_combo.cpp
 
 HEADERS += \
@@ -57,6 +58,7 @@ HEADERS += \
     connection.h \
     qaudiolevel.h \
     rendezvous.h \
+    salle.h \
     stat_combo.h
 
 FORMS += \

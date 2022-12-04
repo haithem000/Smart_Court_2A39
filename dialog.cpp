@@ -164,3 +164,48 @@ void Dialog::statistique()
     chartView->setMinimumSize(420,300);
     chartView->show();
 }
+
+
+/********************************bilel*****************************************************************/
+void Dialog::sttat()
+{
+
+    QSqlQuery query0,query1,query2,query3;
+        float valvi=0,valcom=0,items=0;
+        query0.prepare("select * from SALLE");
+        query0.exec();
+        query1.prepare("select * from SALLE where ETAT =:Vide");
+        query1.bindValue(":Vide","Vide");
+        query1.exec();
+        query2.prepare("select * from SALLE where ETAT =:Complet");
+        query2.bindValue(":Complet","Complet");
+        query2.exec();
+
+        while(query0.next()){items++;};
+        while(query1.next()){valvi++;};
+        while(query2.next()){valcom++;};
+
+        valvi=valvi/items;
+        valcom=valcom/items;
+
+
+        QPieSeries *series = new QPieSeries();
+        series->append("Vide",valvi);
+        series->append("Complet",valcom);
+
+
+        QPieSlice *slice0 = series->slices().at(0);
+        slice0->setLabelVisible();
+        QPieSlice *slice1 = series->slices().at(1);
+        slice1->setLabelVisible();
+
+        QChart *chart = new QChart();
+        chart->addSeries(series);
+        chart->legend()->hide();
+
+        QChartView *chartView = new QChartView(chart,this);
+           chartView->setRenderHint(QPainter::Antialiasing);
+           chartView->setMinimumSize(420,300);
+           chartView->show();
+
+}

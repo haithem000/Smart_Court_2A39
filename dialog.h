@@ -16,6 +16,7 @@ public:
     ~Dialog();
  void afficher();
   void stats();
+  void sttat();
   void statistique();
 private:
     Ui::Dialog *ui;

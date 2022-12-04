@@ -29,7 +29,7 @@
 #include <QTextStream>
 #include <QFile>
 
-
+#include "salle.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -306,7 +306,7 @@ void MainWindow::on_recorder_clicked()
     */
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton333_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
 }
@@ -322,6 +322,14 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
      ui->stackedWidget->setCurrentIndex(3);
+}
+void MainWindow::on_pushButton_7_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(4);
+}
+void MainWindow::on_pushButton_4_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
 }
 /***********************************wejden**********************************************/
 void MainWindow::on_pb_ajouter_2_clicked()
@@ -1181,4 +1189,235 @@ void MainWindow::on_statbouton_clicked()
                 chart->setTheme(QChart::ChartThemeBlueIcy);
                 chartView->show();
 
+}
+/**********************************************bilel***********************************************************/
+
+void MainWindow::on_pushButton_15_clicked()
+{
+MainWindow w;
+    int NBSALLE=ui->lineEdit_NBsalle->text().toInt();
+    QString ETAT=ui->comboBox_etat->currentText();
+    int CAPACITE=ui->lineEdit_Capacite->text().toInt();
+
+            Salle c(NBSALLE,ETAT,CAPACITE);
+           bool test= c.ajouter();
+
+               if(test){
+               w.show();
+               QMessageBox::information(nullptr, QObject::tr("database is open"),
+                           QObject::tr("Ajout effectué.\n"
+                                       "Click OK to exit."), QMessageBox::Ok);
+            ui->tableView_aff_2->setModel(c.afficher());
+           }
+           else
+               QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                           QObject::tr("Ajout non effectué.\n"
+                                       "Click OK to exit."), QMessageBox::Ok);
+
+}
+
+
+void MainWindow::on_pushButton_supprimer_2_clicked()
+{ MainWindow w;
+    Salle a; a.setNBSALLE(ui->lineEdit_NBsalle->text().toUInt());
+
+ bool test=a.supprimer(a.getNBSALLE());
+
+     if(test){
+     w.show();
+     QMessageBox::information(nullptr, QObject::tr("database is open"),
+                 QObject::tr("Supression effectué.\n"
+                             "Click OK to exit."), QMessageBox::Ok);
+             ui->tableView_aff_2->setModel(a.afficher());
+
+ }
+ else
+     QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                 QObject::tr("Supressnion non effectué.\n"
+                             "Click OK to exit."), QMessageBox::Ok);
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    MainWindow w;
+        Salle a;
+        a.setNBSALLE(ui->lineEdit_NBsalle->text().toUInt());
+        a.setETAT(ui->comboBox_etat->currentText());
+        a.setCAPACITE(ui->lineEdit_Capacite->text().toUInt());
+
+
+                bool test=a.modifier(a.getNBSALLE());
+
+         if(test){
+         w.show();
+         QMessageBox::information(nullptr, QObject::tr("database is open"),
+                     QObject::tr("Modification effectué.\n"
+                                 "Click OK to exit."), QMessageBox::Ok);
+                 ui->tableView_aff_2->setModel(a.afficher());
+
+     }
+     else
+         QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                     QObject::tr("Modification non effectué.\n"
+                                 "Click OK to exit."), QMessageBox::Ok);
+}
+
+void MainWindow::on_pushButton_21_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+                    const int rowCount = ui->tableView_aff_2->model()->rowCount();
+                    const int columnCount =ui->tableView_aff_2->model()->columnCount();
+
+
+                    out <<  "<html>\n"
+                            "<head>\n"
+                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                            <<  QString("<title>%1</title>\n").arg("eleve")
+                            <<  "</head>\n"
+                            "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                                "<h1>Liste des Salles</h1>"
+
+                                "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+                    // headers
+                        out << "<thead><tr bgcolor=#f0f0f0>";
+                        for (int column = 0; column < columnCount; column++)
+                            if (!ui->tableView_aff_2->isColumnHidden(column))
+                                out << QString("<th>%1</th>").arg(ui->tableView_aff_2->model()->headerData(column, Qt::Horizontal).toString());
+                        out << "</tr></thead>\n";
+                        // data table
+                           for (int row = 0; row < rowCount; row++) {
+                               out << "<tr>";
+                               for (int column = 0; column < columnCount; column++) {
+                                   if (!ui->tableView_aff_2->isColumnHidden(column)) {
+                                       QString data = ui->tableView_aff_2->model()->data(ui->tableView_aff_2->model()->index(row, column)).toString().simplified();
+                                       out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                   }
+                               }
+                               out << "</tr>\n";
+                           }
+                           out <<  "</table>\n"
+                               "</body>\n"
+                               "</html>\n";
+
+
+
+            QTextDocument *document = new QTextDocument();
+            document->setHtml(strStream);
+
+
+            //QTextDocument document;
+            //document.setHtml(html);
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setOutputFileName("bilelfile.pdf");
+            document->print(&printer);
+
+}
+
+void MainWindow::on_pushButton_pdftri_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+                    const int rowCount = ui->tableView_tri_2->model()->rowCount();
+                    const int columnCount =ui->tableView_tri_2->model()->columnCount();
+
+
+                    out <<  "<html>\n"
+                            "<head>\n"
+                            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                            <<  QString("<title>%1</title>\n").arg("eleve")
+                            <<  "</head>\n"
+                            "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                                "<h1>Liste des Salles</h1>"
+
+                                "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+                    // headers
+                        out << "<thead><tr bgcolor=#f0f0f0>";
+                        for (int column = 0; column < columnCount; column++)
+                            if (!ui->tableView_tri_2->isColumnHidden(column))
+                                out << QString("<th>%1</th>").arg(ui->tableView_tri_2->model()->headerData(column, Qt::Horizontal).toString());
+                        out << "</tr></thead>\n";
+                        // data table
+                           for (int row = 0; row < rowCount; row++) {
+                               out << "<tr>";
+                               for (int column = 0; column < columnCount; column++) {
+                                   if (!ui->tableView_tri_2->isColumnHidden(column)) {
+                                       QString data = ui->tableView_tri_2->model()->data(ui->tableView_tri_2->model()->index(row, column)).toString().simplified();
+                                       out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                   }
+                               }
+                               out << "</tr>\n";
+                           }
+                           out <<  "</table>\n"
+                               "</body>\n"
+                               "</html>\n";
+
+
+
+            QTextDocument *document = new QTextDocument();
+            document->setHtml(strStream);
+
+
+            //QTextDocument document;
+            //document.setHtml(html);
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setOutputFileName("bilelfiletri.pdf");
+            document->print(&printer);
+
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+    MainWindow w;
+        Salle s;
+
+             ui->tableView_tri_2->setModel(s.tri_etat());
+}
+
+void MainWindow::on_pushButton_20_clicked()
+{
+    MainWindow w;
+        Salle s;
+
+             ui->tableView_tri_2->setModel(s.tri_cap());
+}
+void MainWindow::on_pushButton_rech_clicked()
+{
+    Salle S;
+           QString recherche = ui->lineEdit_rech_2->text();
+           if(recherche.length()!=0)
+       {
+
+               if(ui->comboBox_rech_2->currentIndex()==0){
+                   ui->tableView_rech_2->setModel(S.recherche_nbsalle(recherche));
+
+
+               }
+               else if (ui->comboBox_rech_2->currentIndex()==1)
+               {
+                    ui->tableView_rech_2->setModel(S.recherche_etat(recherche));
+
+               }
+               else if(ui->comboBox_rech_2->currentIndex()==2)
+               {
+                   ui->tableView_rech_2->setModel(S.recherche_cap(recherche));
+
+
+           }
+           else
+           {
+              ui->tableView_rech_2->setModel(S.afficher());
+           }
+       }
+}
+
+void MainWindow::on_pushButton_77_clicked()
+{
+    Dialog d;
+    d.sttat();
+    d.exec();
 }
