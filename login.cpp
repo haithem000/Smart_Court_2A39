@@ -8,10 +8,10 @@
 
 
 login::login(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::login)
 {
-   // ui->setupUi(this);
+    ui->setupUi(this);
     int ret=A.connect_arduino(); // lancer la connexion Ã  arduino
                   switch(ret){
                   case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();

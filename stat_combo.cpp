@@ -1,4 +1,4 @@
-#include "stat_combo.h"
+/*#include "stat_combo.h"
 #include "ui_stat_combo.h"
 
 stat_combo::stat_combo(QWidget *parent) :
@@ -64,3 +64,4 @@ stat_combo::~stat_combo()
 
     chartView->show();
     }
+*/

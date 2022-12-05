@@ -89,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
      QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(rechEmploy()));
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(affcherRendezvousArduino()));
 
 
 }
@@ -613,7 +614,7 @@ void MainWindow::on_calendrier_activated(const QModelIndex &index)
    }
 void MainWindow::on_photo_clicked()
     {
-        QString picpath=QFileDialog::getOpenFileName(this,tr("Open file"),"c://","JPG File(.jpg);;PNG File(.png)");
+        QString picpath=QFileDialog::getOpenFileName(this,tr("Open file"),"c://","JPG File(*.jpg);;PNG File(*.png)");
         int numero=ui->id->text().toInt();
         QSqlQuery query;
         query.prepare("update TABLE1 set pic=:picpath where NUMR=:numero");
@@ -888,7 +889,7 @@ void MainWindow::on_pushButton_clear_clicked()
 
 
 }
-void MainWindow::affcherRendezvousArduino(){
+/*void MainWindow::affcherRendezvousArduino(){
     QString dateRDV,message;
     data = A.read_from_arduino();
     QString DataAsString = QTextCodec::codecForMib(106)->toUnicode(data);
@@ -913,7 +914,7 @@ void MainWindow::affcherRendezvousArduino(){
                  }
              A.write_to_arduino(message.toUtf8());
              }
-}
+}*/
 /****************************************saadani*******************************************************************/
 
 

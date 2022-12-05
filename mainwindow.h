@@ -50,7 +50,7 @@ public:
     ~MainWindow();
     void update_label();
     QSortFilterProxyModel *proxy;
-
+//void affcherRendezvousArduino();
 
 private slots:
     void rechEmploy();
@@ -124,7 +124,7 @@ private slots:
         void on_calendarWidget_clicked(const QDate &date);
 
         void on_calendrier_activated(const QModelIndex &index);
-        void affcherRendezvousArduino();
+       // void affcherRendezvousArduino();
 
    /*     ****************************selim*******************************                                           */
 

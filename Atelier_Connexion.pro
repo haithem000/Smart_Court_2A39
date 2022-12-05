@@ -45,8 +45,7 @@ SOURCES += \
     connection.cpp \
     qaudiolevel.cpp \
     rendezvous.cpp \
-    salle.cpp \
-    stat_combo.cpp
+    salle.cpp
 
 HEADERS += \
  aff_juridique.h \
@@ -62,8 +61,7 @@ HEADERS += \
     connection.h \
     qaudiolevel.h \
     rendezvous.h \
-    salle.h \
-    stat_combo.h
+    salle.h
 
 FORMS += \
         audiorecorder.ui \

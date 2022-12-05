@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtSql>
 #include <QtDebug>
+#include <QDialog>
 #include "connection.h"
 #include "employee.h"
 #include <QSql>
@@ -14,7 +15,7 @@ namespace Ui {
 class login;
 }
 
-class login : public QMainWindow
+class login : public QDialog
 {
     Q_OBJECT
 
