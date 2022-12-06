@@ -1,10 +1,9 @@
-#ifndef login_H
-#define login_H
+#ifndef LOGIN_H
+#define LOGIN_H
 #include <QMainWindow>
 #include <QMainWindow>
 #include <QtSql>
 #include <QtDebug>
-#include <QDialog>
 #include "connection.h"
 #include "employee.h"
 #include <QSql>
@@ -12,16 +11,16 @@
 
 
 namespace Ui {
-class login;
+class LOGIN;
 }
 
-class login : public QDialog
+class LOGIN : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit login(QWidget *parent = nullptr);
-    ~login();
+    explicit LOGIN(QWidget *parent = nullptr);
+    ~LOGIN();
 
 private slots:
     void rechEmploy();
@@ -30,9 +29,9 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
-    Ui::login *ui;
+    Ui::LOGIN *ui;
     Arduino A;
             QByteArray data ;
 };
 
-#endif // login_H
+#endif // LOGIN_H
